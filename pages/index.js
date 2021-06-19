@@ -1,8 +1,7 @@
-import React, {useEffect, useLayoutEffect, useRef, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import Head from 'next/head'
 import {useRouter} from "next/router";
 import dynamic from "next/dynamic";
-import styled from "styled-components";
 import style from '/styles/Home.module.scss'
 import RunningText from "/components/runningText";
 
@@ -50,7 +49,7 @@ export default function Home() {
                     nextSection()
                 }
                 setIsScrolling(false)
-            }, 1000)
+            }, 400)
         }
     }, [isScrolling])
 

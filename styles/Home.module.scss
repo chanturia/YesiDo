@@ -222,6 +222,10 @@
         color: white;
         text-decoration: none;
 
+        &.active {
+          color: #274d4e;
+        }
+
         &:hover {
           color: #274d4e;
         }

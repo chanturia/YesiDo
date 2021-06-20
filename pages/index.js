@@ -3,6 +3,7 @@ import Head from 'next/head'
 import {useRouter} from "next/router";
 import dynamic from "next/dynamic";
 import style from '/styles/Home.module.scss'
+import Navigation from "../components/navigation";
 import RunningText from "/components/runningText";
 
 const Section1 = dynamic(() => {
@@ -94,20 +95,14 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
             <section className={style.mainSection}>
-                <nav className={style.mainNavigation}>
-                    <ul>
-                        <li><a href="#el">El</a></li>
-                        <li><a href="#ru">Ru</a></li>
-                        <li><a href="#ge">Ge</a></li>
-                    </ul>
-                </nav>
+                <Navigation/>
                 <div className={style.centerBG}>
                 </div>
                 <div className={style.mainLogo}>
                     <img src="/images/Logo.svg" alt="I Do Logo"/>
                 </div>
                 <div className={style.mainPoster}>
-                    <RunningText/>
+                    <RunningText/>{/*TODO resolve Problem with classname*/}
                 </div>
                 {showSections()}
                 <div className={style.flowersContainer}>

@@ -23,7 +23,8 @@ const Text3 = styled.div`
   font-size: 3.2rem;
   font-weight: 400;
   margin: 13px 0 0 16px;
-  letter-spacing: -3px;`;
+  letter-spacing: -3px;
+`;
 
 const MapWrapper = styled.div`
   display: flex;
@@ -50,17 +51,17 @@ const Map = styled.div`
 `
 export default function section3() {
     return (
-        <MainDiv className={style.firstState}>
+        <div className={`${style.section} ${style.state3}`}>
             <div>
-                <Text1>Κέντρο</Text1>
-                <Text2>Ypanema</Text2>
-                <Text3>Λουτράκι</Text3>
+                <div className={style.text1}>Κέντρο</div>
+                <div className={style.text2}>Ypanema</div>
+                <div className={style.text3}>Λουτράκι</div>
             </div>
-            <MapWrapper>
-                <Map onClick={()=>{alert("open Mao")}}>
+            <div className={style.mapWrapper}>
+                <div className={style.map} onClick={()=>{alert("open Mao")}}>
                     <span>Map</span>
-                </Map>
-            </MapWrapper>
-        </MainDiv>
+                </div>
+            </div>
+        </div>
     )
 }

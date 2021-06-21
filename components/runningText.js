@@ -3,7 +3,7 @@ import styled from "styled-components";
 import {TimelineLite, Linear} from "gsap";
 import style from '/styles/Home.module.scss'
 
-function RunningText() {
+function RunningText({string, size, bottom}) {
     const text = useRef(null)
     useEffect(() => {
         let wrapper = text.current;
@@ -51,23 +51,17 @@ function RunningText() {
     });
 
     return (
-        <RunningTextWrapper ref={text}>
+        <div className={style.runningTextWrapper} ref={text} style={{bottom: bottom + "rem"}}>
             <Ul>
-                <li><span>ΓΙΩΡΓΟΣ ΤΣΑΝΤΟΥΡΙΑ & ΟΛΙΑ ΚΟΥΡΙΛΟ & </span></li>
+                <li style={{fontSize: size + "rem"}}><span>{string}</span></li>
             </Ul>
-        </RunningTextWrapper>
+        </div>
     )
 
 }
+
 export default React.memo(RunningText)
 
-const RunningTextWrapper = styled.div`
-  bottom: 3rem;
-  position: absolute;
-  overflow: hidden;
-  width: 100%;
-  z-index: 1;
-`
 
 const Ul = styled.ul`
   display: flex;
@@ -87,7 +81,7 @@ const Ul = styled.ul`
   li {
     color: white;
     z-index: 2;
-    font-size: 3rem;
+    //font-size: 3rem;
     font-weight: 200;
     letter-spacing: 0.2rem;
     word-spacing: 1rem;

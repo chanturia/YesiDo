@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import style from '/styles/Home.module.scss'
 import Navigation from "../components/navigation";
 import RunningText from "/components/runningText";
+import asterisk from "../svg/asterisk";
 
 const Section1 = dynamic(() => {
     return import("../components/section1");
@@ -83,11 +84,6 @@ export default function Home() {
     }
 
 
-    // useEffect(() => {
-    //     mainContainerRef.current.addEventListener('wheel', wheelScroll)
-    //     // return mainContainerRef.current.removeEventListener('wheel', wheelScroll)
-    // }, [])
-
     return (
         <div className={style.container} ref={mainContainerRef} onWheel={wheelScroll}>
             <Head>
@@ -102,9 +98,11 @@ export default function Home() {
                     <img src="/images/Logo.svg" alt="I Do Logo"/>
                 </div>
                 <div className={style.mainPoster}>
-                    <RunningText/>{/*TODO resolve Problem with classname*/}
+                    <RunningText string="ΓΙΩΡΓΟΣ ΤΣΑΝΤΟΥΡΙΑ & ΟΛΙΑ ΚΟΥΡΙΛΟ & " size={3} bottom={4}/>{/*TODO resolve Problem with classname*/}
+                    <RunningText string="ΚΟΥΜΠΑΡΟΙ: ΤΣΟΥΚΑΣ ΘΩΜΑΣ & ΒΑΣΙΛΙΚΗ ΓΙΑΝΝΟΥΛΟΥ | " size={1.5} bottom={1.5}/>{/*TODO resolve Problem with classname*/}
                 </div>
                 {showSections()}
+                <div className={style.formTrigger}><span className={style.rotating}>{asterisk}</span></div>
                 <div className={style.flowersContainer}>
                     <div className={style.flower1}><img src="/images/elia.png" alt="flower1"/></div>
                     <div className={style.flower2}><img src="/images/flower.png" alt="flower1"/></div>

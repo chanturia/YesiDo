@@ -3,7 +3,7 @@ import style from '/styles/Home.module.scss'
 
 export default function section1() {
     return (
-        <div className={style.firstState}>
+        <div className={`${style.section} ${style.state1}`}>
             <h2>Είπαμε ναι!</h2>
             <p>
                 Θα χαρούμε να βρεθείτε στην

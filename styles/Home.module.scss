@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200;400;700&display=swap');
 
+$mainTextColor: #274d4e;
+$mainBgColor: #f9e2d4;
+
+
 .container {
   min-height: 100vh;
   padding: 0;
@@ -10,127 +14,6 @@
   align-items: center;
 }
 
-.main {
-  padding: 5rem 0;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.footer {
-  width: 100%;
-  height: 100px;
-  border-top: 1px solid #eaeaea;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  img {
-    margin-left: 0.5rem;
-  }
-
-  a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-}
-
-
-.title {
-  margin: 0;
-  line-height: 1.15;
-  font-size: 4rem;
-  text-align: center;
-
-
-  a {
-    color: #0070f3;
-    text-decoration: none;
-
-    :hover, :focus, :active {
-      text-decoration: underline;
-    }
-
-  }
-}
-
-
-.title {
-}
-
-.title,
-.description {
-}
-
-.description {
-  line-height: 1.5;
-  font-size: 1.5rem;
-}
-
-.code {
-  background: #fafafa;
-  border-radius: 5px;
-  padding: 0.75rem;
-  font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-  Bitstream Vera Sans Mono, Courier New, monospace;
-}
-
-.grid {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  max-width: 800px;
-  margin-top: 3rem;
-}
-
-.card {
-  margin: 1rem;
-  flex-basis: 45%;
-  padding: 1.5rem;
-  text-align: left;
-  color: inherit;
-  text-decoration: none;
-  border: 1px solid #eaeaea;
-  border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
-}
-
-.card:hover,
-.card:focus,
-.card:active {
-  color: #0070f3;
-  border-color: #0070f3;
-}
-
-.card h3 {
-  margin: 0 0 1rem 0;
-  font-size: 1.5rem;
-}
-
-.card p {
-  margin: 0;
-  font-size: 1.25rem;
-  line-height: 1.5;
-}
-
-.logo {
-  height: 1em;
-}
-
-@media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
-  }
-}
-
-//Custom CSS
-
 .mainSection {
   background: white;
   width: 100%;
@@ -139,12 +22,50 @@
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
+
+  .formTrigger {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    bottom: 6rem;
+    z-index: 2;
+    right: 61.5rem;
+
+    @-webkit-keyframes rotating {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .rotating {
+      animation: rotating 5s linear infinite;
+
+      &:hover {
+        animation-play-state: paused;
+      }
+    }
+
+
+    span {
+      width: 6rem;
+      height: 6rem;
+      cursor: pointer;
+
+      svg {
+        fill: $mainTextColor;
+      }
+    }
+  }
 }
 
 .centerBG {
   width: 100%;
   height: 100%;
-  background: #f9e2d4;
+  background: $mainBgColor;
 }
 
 .mainLogo {
@@ -223,11 +144,11 @@
         text-decoration: none;
 
         &.active {
-          color: #274d4e;
+          color: $mainTextColor;
         }
 
         &:hover {
-          color: #274d4e;
+          color: $mainTextColor;
         }
       }
     }
@@ -272,22 +193,133 @@
   right: 127px;
 }
 
-.firstState {
+.section {
   position: absolute;
   top: 25rem;
   right: 33rem;
   height: 17rem;
   width: 34rem;
-  color: #274d4e;
+  color: $mainTextColor;
 
-  h2 {
-    font-size: 3.5rem;
-    margin: 0.5rem 0.6rem;
+  &.state1 {
+    h2 {
+      font-size: 3.5rem;
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+
+    }
+
+    p {
+      font-size: 2.3rem;
+      font-weight: 300;
+      margin: 1rem 0;
+    }
   }
 
-  p {
-    font-size: 2.3rem;
-    font-weight: 300;
-    margin: 1rem 0.6rem;
+  &.state2 {
+    .text1 {
+      font-size: 2.9rem;
+      font-weight: 400;
+    }
+
+    .text2 {
+      margin-top: 12px;
+      font-size: 3.8rem;
+      white-space: nowrap;
+      letter-spacing: 1px;
+      font-weight: 500;
+    }
+
+    .text3 {
+      margin-top: 18px;
+      font-size: 2.9rem;
+      letter-spacing: 1px;
+      font-weight: 300;
+    }
+  }
+
+  &.state3 {
+    display: flex;
+
+    .text1 {
+      font-size: 2.7rem;
+      font-weight: 300;
+      letter-spacing: -3px;
+    }
+
+    .text2 {
+      font-size: 4.3rem;
+      font-weight: 500;
+      margin-top: 13px;
+      letter-spacing: -3px;
+    }
+
+    .text3 {
+      font-size: 3.2rem;
+      font-weight: 400;
+      margin-top: 13px;
+      letter-spacing: -3px;
+    }
+
+    .mapWrapper {
+      display: flex;
+      align-items: center;
+
+      .map {
+        border: 3px solid $mainTextColor;
+        border-radius: 50%;
+        height: 6rem;
+        width: 6rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.6rem;
+        font-weight: 500;
+        margin-left: 6rem;
+        margin-bottom: 3rem;
+        cursor: pointer;
+        transition: all .4s;
+
+        &:hover {
+          border-color: $mainBgColor;
+          background: #274d4e;
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+.runningTextWrapper {
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  z-index: 1;
+
+  ul.cloned {
+    position: absolute;
+    top: 0;
+
+    li {
+      padding: 0;
+    }
+  }
+
+  ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      color: white;
+      z-index: 2;
+      //font-size: 3rem;
+      font-weight: 200;
+      letter-spacing: 0.2rem;
+      word-spacing: 1rem;
+      white-space: nowrap;
+      padding-right: 20px;
+    }
   }
 }

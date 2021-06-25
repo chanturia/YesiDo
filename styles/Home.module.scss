@@ -28,9 +28,9 @@ $mainBgColor: #f9e2d4;
     display: flex;
     justify-content: center;
     align-content: center;
-    bottom: 6rem;
+    bottom: 10rem;
     z-index: 2;
-    right: 61.5rem;
+    right: 63.5rem;
 
     @-webkit-keyframes rotating {
       from {
@@ -42,7 +42,7 @@ $mainBgColor: #f9e2d4;
     }
 
     .rotating {
-      animation: rotating 5s linear infinite;
+      animation: rotating 8s linear infinite;
 
       &:hover {
         animation-play-state: paused;
@@ -195,8 +195,8 @@ $mainBgColor: #f9e2d4;
 
 .section {
   position: absolute;
-  top: 25rem;
-  right: 33rem;
+  top: 23rem;
+  right: 35rem;
   height: 17rem;
   width: 34rem;
   color: $mainTextColor;
@@ -295,31 +295,4 @@ $mainBgColor: #f9e2d4;
   overflow: hidden;
   width: 100%;
   z-index: 1;
-
-  ul.cloned {
-    position: absolute;
-    top: 0;
-
-    li {
-      padding: 0;
-    }
-  }
-
-  ul {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-
-    li {
-      color: white;
-      z-index: 2;
-      //font-size: 3rem;
-      font-weight: 200;
-      letter-spacing: 0.2rem;
-      word-spacing: 1rem;
-      white-space: nowrap;
-      padding-right: 20px;
-    }
-  }
 }

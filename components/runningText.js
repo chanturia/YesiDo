@@ -3,7 +3,7 @@ import styled from "styled-components";
 import {TimelineLite, Linear} from "gsap";
 import style from '/styles/Home.module.scss'
 
-function RunningText({string, size, bottom}) {
+function RunningText({string, size, bottom, weight}) {
     const text = useRef(null)
     useEffect(() => {
         let wrapper = text.current;
@@ -52,7 +52,7 @@ function RunningText({string, size, bottom}) {
 
     return (
         <div className={style.runningTextWrapper} ref={text} style={{bottom: bottom + "rem"}}>
-            <Ul>
+            <Ul weight={weight}>
                 <li style={{fontSize: size + "rem"}}><span>{string}</span></li>
             </Ul>
         </div>
@@ -82,7 +82,7 @@ const Ul = styled.ul`
     color: white;
     z-index: 2;
     //font-size: 3rem;
-    font-weight: 200;
+    font-weight: ${props => props.weight || 500};
     letter-spacing: 0.2rem;
     word-spacing: 1rem;
     white-space: nowrap;

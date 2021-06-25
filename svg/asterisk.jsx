@@ -1,10 +1,12 @@
 const asterisk = () => {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
-             id="mdi-asterisk"
-             width="100%" height="100%" viewBox="0 0 24 24">
-            <path
-                d="M10,2H14L13.21,9.91L19.66,5.27L21.66,8.73L14.42,12L21.66,15.27L19.66,18.73L13.21,14.09L14,22H10L10.79,14.09L4.34,18.73L2.34,15.27L9.58,12L2.34,8.73L4.34,5.27L10.79,9.91L10,2Z"/>
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"
+             viewBox="0 0 93 93">
+            <g className="st0">
+                <path className="st1"
+                      d="M76.4,24.7l5,9L49.2,46.5l32.2,12.8l-4.6,8.6L49.4,49.1l3.2,34.2H42.4l2.4-34.2L16.6,68.5l-5-9l31.8-12.8
+		L11.6,33.5l5.4-9.4l27.6,19.4L42.4,9.7h10l-3,33.8L76.4,24.7z"/>
+            </g>
         </svg>
     )
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import style from '/styles/Home.module.scss'
 import styled from "styled-components";
+import {Animated} from "react-animated-css";
 
 const MainDiv = styled.div`
   display: flex;
@@ -53,14 +54,14 @@ export default function section3() {
     return (
         <div className={`${style.section} ${style.state3}`}>
             <div>
-                <div className={style.text1}>Κέντρο</div>
-                <div className={style.text2}>Ypanema</div>
-                <div className={style.text3}>Λουτράκι</div>
+                <Animated animationIn="fadeIn" animationOut="fadeOut" animationInDelay={0} className={style.text1}>Κέντρο</Animated>
+                <Animated animationIn="fadeIn" animationOut="fadeOut" animationInDelay={200} className={style.text2}>Ypanema</Animated>
+                <Animated animationIn="fadeIn" animationOut="fadeOut" animationInDelay={400} className={style.text3}>Λουτράκι</Animated>
             </div>
             <div className={style.mapWrapper}>
-                <div className={style.map} onClick={()=>{alert("open Mao")}}>
+                <Animated animationIn="fadeIn" animationOut="fadeOut" animationInDelay={600} className={style.map} onClick={()=>{alert("open Mao")}}>
                     <span>Map</span>
-                </div>
+                </Animated>
             </div>
         </div>
     )

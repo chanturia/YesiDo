@@ -4,6 +4,7 @@ import asterisk from "../svg/asterisk";
 import Modal from 'react-modal';
 import {Formik, Form, Field} from 'formik';
 import * as Yup from 'yup';
+import useTranslation from 'next-translate/useTranslation'
 import {
     Button,
     FormControl,
@@ -37,10 +38,12 @@ const customStyles = {
 
 function FormModal() {
     const [modalIsOpen, setIsOpen] = useState(false);
-
+    const { t, lang } = useTranslation('common')
     function openModal() {
         setIsOpen(true);
     }
+
+    console.log(lang);
 
     const SignupSchema = Yup.object().shape({
         firstAndLastName: Yup.string()
@@ -195,7 +198,7 @@ function FormModal() {
                                 alignItems="center"
                             >
                                 <Button variant="contained" type={'submit'}
-                                        color={values.amComing === 'yes' ? "primary" : "secondary"}>Submit</Button>
+                                        color={values.amComing === 'yes' ? "primary" : "secondary"}>{t`submit`}</Button>
                             </Grid>
                         </Form>
                     )}

@@ -1,6 +1,9 @@
 const nextTranslate = require('next-translate')
 
 module.exports = nextTranslate({
+    env: {
+        mongodburl: "mongodb+srv://chanturia:aRmI11agOPJusptZ@cluster0.snicj.mongodb.net/yesido",
+    },
     future: {
         webpack5: true,
     },

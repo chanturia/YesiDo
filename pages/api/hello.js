@@ -1,5 +1,18 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+import connectDB from '/middleware/mongodb';
+import User from '/models/user';
 
-export default (req, res) => {
-  res.status(200).json({ name: 'John Doe' })
-}
+const handler = async (req, res) => {
+    var user = new User({
+        name: 'test test test',
+        amount: 2,
+        needHelp: true,
+        extraInfo: 'sadfsdfsdf',
+        amComing: 'yes',
+    });
+    // Create new user
+    const usercreated = await user.save();
+    return res.status(200).send(usercreated);
+
+};
+
+export default connectDB(handler);

@@ -3,20 +3,20 @@ import Head from 'next/head'
 import {useRouter} from "next/router";
 import dynamic from "next/dynamic";
 import style from '/styles/Home.module.scss'
-import Navigation from "../components/navigation";
+import Navigation from "/components/navigation";
 import RunningText from "/components/runningText";
-import FormModal from "../components/formModal";
+import FormModal from "/components/formModal";
 
 const Section1 = dynamic(() => {
-    return import("../components/section1");
+    return import("/components/section1");
 }, {ssr: false});
 
 const Section2 = dynamic(() => {
-    return import("../components/section2");
+    return import("/components/section2");
 }, {ssr: false});
 
 const Section3 = dynamic(() => {
-    return import("../components/section3");
+    return import("/components/section3");
 }, {ssr: false});
 
 export default function Home() {
@@ -88,6 +88,7 @@ export default function Home() {
         <div className={style.container} ref={mainContainerRef} onWheel={wheelScroll}>
             <Head>
                 <title>I DO</title>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"/>
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
             <section className={style.mainSection}>

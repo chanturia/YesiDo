@@ -20,19 +20,18 @@ const Section3 = dynamic(() => {
 }, {ssr: false});
 
 export default function Home() {
-    const router = useRouter();
     const mainContainerRef = useRef()
     const [deltaY, setDeltaY] = useState(0)
-    const sections = ["/#section1", "/#section2", "/#section3"]
-    const [currentSection, setCurrentSection] = useState(sections.indexOf(router.asPath))
+    const sections = [0, 1, 2]
+    const [currentSection, setCurrentSection] = useState(0)
     const [isScrolling, setIsScrolling] = useState(false)
     const showSections = () => {
-        switch (router.asPath) {
-            case "/#section1":
+        switch (currentSection) {
+            case 0:
                 return <Section1/>
-            case "/#section2":
+            case 1:
                 return <Section2/>
-            case "/#section3":
+            case 2:
                 return <Section3/>
             default:
                 return <Section1/>
@@ -41,6 +40,10 @@ export default function Home() {
     useEffect(() => {
         showSections()
     }, [])
+
+    useEffect(() => {
+        showSections()
+    }, [currentSection])
 
     useEffect(() => {
         if (isScrolling) {
@@ -54,16 +57,6 @@ export default function Home() {
             }, 400)
         }
     }, [isScrolling])
-
-    useEffect(() => {
-        if (sections[currentSection]){
-            router.push(sections[currentSection]).then()
-        }
-        else {
-            nextSection()
-        }
-
-    }, [currentSection])
 
     function nextSection() {
         if (currentSection < sections.length - 1) {
@@ -99,8 +92,10 @@ export default function Home() {
                     <img src="/images/Logo.svg" alt="I Do Logo"/>
                 </div>
                 <div className={style.mainPoster}>
-                    <RunningText string="ΓΙΩΡΓΟΣ ΤΣΑΝΤΟΥΡΙΑ & ΟΛΙΑ ΚΟΥΡΙΛΟ & " size={3} bottom={4} weight={200}/>{/*TODO resolve Problem with classname*/}
-                    <RunningText string="ΚΟΥΜΠΑΡΟΙ: ΤΣΟΥΚΑΣ ΘΩΜΑΣ & ΒΑΣΙΛΙΚΗ ΓΙΑΝΝΟΥΛΟΥ | " size={1.5} bottom={1.5} weight={500}/>{/*TODO resolve Problem with classname*/}
+                    <RunningText string="ΓΙΩΡΓΟΣ ΤΣΑΝΤΟΥΡΙΑ & ΟΛΙΑ ΚΟΥΡΙΛΟ & " size={3} bottom={4}
+                                 weight={200}/>{/*TODO resolve Problem with classname*/}
+                    <RunningText string="ΚΟΥΜΠΑΡΟΙ: ΤΣΟΥΚΑΣ ΘΩΜΑΣ & ΒΑΣΙΛΙΚΗ ΓΙΑΝΝΟΥΛΟΥ | " size={1.5} bottom={1.5}
+                                 weight={500}/>{/*TODO resolve Problem with classname*/}
                 </div>
                 {showSections()}
                 <FormModal/>

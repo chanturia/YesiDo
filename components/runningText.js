@@ -1,6 +1,6 @@
 import React, {useEffect, useRef, useMemo} from 'react';
 import styled from "styled-components";
-import {TimelineLite, Linear} from "gsap";
+import {TimelineLite, Linear ,gsap} from "gsap";
 import style from '/styles/Home.module.scss'
 
 function RunningText({string, size, bottom, weight}) {
@@ -21,7 +21,7 @@ function RunningText({string, size, bottom, weight}) {
         wrapper.appendChild($clonedList)
 
         //TimelineLite
-        let infinite = new TimelineLite({repeat: -1, paused: true});
+        let infinite = gsap.timeline({repeat: -1, paused: true});
         let time = 12;
 
         infinite

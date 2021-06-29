@@ -1,6 +1,6 @@
 import React, {useEffect, useRef, useMemo} from 'react';
 import styled from "styled-components";
-import {TimelineLite, Linear ,gsap} from "gsap";
+import {Linear, gsap} from "gsap";
 import style from '/styles/Home.module.scss'
 
 function RunningText({string, size, bottom, weight}) {

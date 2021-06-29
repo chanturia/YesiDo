@@ -279,11 +279,15 @@ $mainBgColor: #f9e2d4;
         margin-bottom: 3rem;
         cursor: pointer;
         transition: all .4s;
+        transform: translateX(-50%);
 
         &:hover {
-          border-color: $mainBgColor;
-          background: #274d4e;
-          color: white;
+          //border-color: $mainBgColor;
+          //background: #274d4e;
+          //color: white;
+          height: 9rem;
+          width: 9rem;
+
         }
       }
     }

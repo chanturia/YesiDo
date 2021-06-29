@@ -1,12 +1,13 @@
 import connectDB from '/middleware/mongodb';
 import User from '/models/user';
+import faker from 'faker';
 
 const handler = async (req, res) => {
     var user = new User({
-        name: 'test test test',
-        amount: 2,
-        needHelp: true,
-        extraInfo: 'sadfsdfsdf',
+        name: faker.name.findName(),
+        amount: faker.datatype.number({min: 1, max: 4}),
+        needHelp: faker.datatype.boolean(),
+        extraInfo: faker.lorem.sentences(),
         amComing: 'yes',
     });
     // Create new user

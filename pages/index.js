@@ -93,9 +93,9 @@ export default function Home() {
                 </div>
                 <div className={style.mainPoster}>
                     <RunningText string="ΓΙΩΡΓΟΣ ΤΣΑΝΤΟΥΡΙΑ & ΟΛΙΑ ΚΟΥΡΙΛΟ & " size={3} bottom={4}
-                                 weight={200}/>{/*TODO resolve Problem with classname*/}
+                                 weight={400}/>{/*TODO resolve Problem with classname*/}
                     <RunningText string="ΚΟΥΜΠΑΡΟΙ: ΤΣΟΥΚΑΣ ΘΩΜΑΣ & ΒΑΣΙΛΙΚΗ ΓΙΑΝΝΟΥΛΟΥ | " size={1.5} bottom={1.5}
-                                 weight={500}/>{/*TODO resolve Problem with classname*/}
+                                 weight={300}/>{/*TODO resolve Problem with classname*/}
                 </div>
                 {showSections()}
                 <FormModal/>

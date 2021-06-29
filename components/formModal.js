@@ -6,14 +6,14 @@ import {Formik, Form, Field} from 'formik';
 import * as Yup from 'yup';
 import useTranslation from 'next-translate/useTranslation'
 import {
-    Button,
+    Button, createMuiTheme,
     FormControl,
     FormControlLabel,
     FormHelperText,
     FormLabel, Grid,
     InputLabel,
     MenuItem, Paper,
-    Radio, Step, StepLabel, Stepper, Typography
+    Radio, Step, StepLabel, Stepper, ThemeProvider, Typography
 } from '@material-ui/core';
 import {RadioGroup, Select, TextField, CheckboxWithLabel} from 'formik-material-ui';
 import {Animated} from "react-animated-css";
@@ -34,11 +34,19 @@ const customStyles = {
         width: "40rem"
     },
 };
-
+const theme = createMuiTheme({
+    palette: {
+        primary: {
+            // Purple and green play nicely together.
+            main: '#274d4e',
+        },
+    },
+});
 
 function FormModal() {
     const [modalIsOpen, setIsOpen] = useState(false);
-    const { t, lang } = useTranslation('common')
+    const {t, lang} = useTranslation('common')
+
     function openModal() {
         setIsOpen(true);
     }
@@ -87,120 +95,130 @@ function FormModal() {
                     }}
                 >
                     {({values, errors, touched}) => (
-                        <Form>
-                            <div>
-                                <FormControl className={style.foolWidthField} style={{marginTop: 0}}>
-                                    <Field
-                                        required
-                                        component={TextField}
-                                        name="firstAndLastName"
-                                        type="text"
-                                        label="First and last name"
-                                        helperText="First and last name of a main person"
-                                    />
-                                </FormControl>
-                            </div>
-                            <div>
-                                <FormControl className={style.foolWidthField}
-                                             component="fieldset"
-                                             required
-                                             error={errors.amComing && touched.amComing}>
-                                    <FormLabel component="legend">Are you coming</FormLabel>
-                                    <Field component={RadioGroup} name="amComing">
-                                        <FormControlLabel
-                                            value="yes"
-                                            control={<Radio color="primary"/>}
-                                            label="Yes i am coming"
-                                        />
-                                        <FormControlLabel
-                                            value="no"
-                                            control={<Radio color="primary"/>}
-                                            label="Unfortunately i can not"
-                                        />
-                                    </Field>
-                                    {errors.amComing && touched.amComing &&
-                                    <FormHelperText>{errors.amComing}</FormHelperText>
-                                    }
-                                </FormControl>
-                            </div>
-                            {values.amComing === 'yes' &&
-                            <div>
-                                <Animated animationIn="fadeIn" animationOut="fadeOut"
-                                          isVisible={values.amComing === 'yes'}>
-                                    <div>
-                                        <FormControl className={style.foolWidthField}>
-                                            <InputLabel>Persons</InputLabel>
-                                            <Field
-                                                component={Select}
-                                                name="amount"
-                                            >
-                                                <MenuItem value={1}>Only Me</MenuItem>
-                                                <MenuItem value={2}>2 persons</MenuItem>
-                                                <MenuItem value={3}>3 persons</MenuItem>
-                                                <MenuItem value={4}>4 persons</MenuItem>
-                                            </Field>
-                                            <FormHelperText>Persons that are coming with you</FormHelperText>
-                                        </FormControl>
-                                    </div>
-                                </Animated>
-                                <Animated animationIn="fadeIn" animationOut="fadeOut" animationInDelay={200}
-                                          isVisible={values.amComing === 'yes'}>
-                                    <FormControl className={style.foolWidthField}><Field
-                                        color="primary"
-                                        required
-                                        component={CheckboxWithLabel}
-                                        type="checkbox"
-                                        name="needHelpWithTransfer"
-                                        indeterminate={false}
-                                        Label={{label: 'I need help with transfer'}}
-                                    />
-                                        <FormHelperText>If you dont have car or dont know how to come to the place
-                                            select the checkbox and we will try to help you</FormHelperText>
-                                    </FormControl>
-                                </Animated>
-                            </div>
-                            }
-                            {values.amComing === 'no' &&
-                            <div>
-                                <Animated
-                                    style={{marginBottom: "1.5em"}}
-                                    animationIn="fadeIn"
-                                    animationOut="fadeOut"
-                                    isVisible={values.amComing === 'no'}>
-                                    <div style={{fontSize: "1.5rem", textAlign: 'center'}}>We are very sorry that you
-                                        are not coming
-                                    </div>
-                                    <div style={{fontSize: "1rem", textAlign: 'center'}}>But if you will change your
-                                        mind pleas contact to us
-                                    </div>
-                                </Animated>
-                                <Animated animationIn="fadeIn" animationOut="fadeOut"
-                                          animationInDelay={200}
-                                          isVisible={values.amComing === 'no'}>
-                                    <FormControl
-                                        className={style.foolWidthField}>
+                        <ThemeProvider theme={theme}>
+                            <Form>
+                                <div>
+                                    <FormControl className={style.foolWidthField} style={{marginTop: 0}}>
                                         <Field
+                                            required
                                             component={TextField}
-                                            name="extraInfo"
-                                            rows={4}
-                                            variant="outlined"
-                                            multiline
-                                            helperText="If you want to say something feel free to do it"
+                                            name="firstAndLastName"
+                                            type="text"
+                                            label="First and last name"
+                                            helperText="First and last name of a main person"
                                         />
                                     </FormControl>
-                                </Animated>
-                            </div>
-                            }
-                            <Grid
-                                container
-                                direction="row"
-                                justify="center"
-                                alignItems="center"
-                            >
-                                <Button variant="contained" type={'submit'}
-                                        color={values.amComing === 'yes' ? "primary" : "secondary"}>{t`submit`}</Button>
-                            </Grid>
-                        </Form>
+                                </div>
+                                <div>
+                                    <FormControl className={style.foolWidthField}
+                                                 component="fieldset"
+                                                 required
+                                                 error={errors.amComing && touched.amComing}>
+                                        <FormLabel component="legend">Are you coming</FormLabel>
+                                        <Field component={RadioGroup} name="amComing">
+                                            <FormControlLabel
+                                                value="yes"
+                                                control={<Radio color="primary"/>}
+                                                label="Yes i am coming"
+                                            />
+                                            <FormControlLabel
+                                                value="no"
+                                                control={<Radio color="primary"/>}
+                                                label="Unfortunately i can not"
+                                            />
+                                        </Field>
+                                        {errors.amComing && touched.amComing &&
+                                        <FormHelperText>{errors.amComing}</FormHelperText>
+                                        }
+                                    </FormControl>
+                                </div>
+                                {values.amComing === 'yes' &&
+                                <div>
+                                    <Animated animationIn="fadeIn" animationOut="fadeOut"
+                                              isVisible={values.amComing === 'yes'}>
+                                        <div>
+                                            <FormControl className={style.foolWidthField}>
+                                                <InputLabel>Persons</InputLabel>
+                                                <Field
+                                                    component={Select}
+                                                    name="amount"
+                                                >
+                                                    <MenuItem value={1}>Only Me</MenuItem>
+                                                    <MenuItem value={2}>2 persons</MenuItem>
+                                                    <MenuItem value={3}>3 persons</MenuItem>
+                                                    <MenuItem value={4}>4 persons</MenuItem>
+                                                </Field>
+                                                <FormHelperText>Persons that are coming with you</FormHelperText>
+                                            </FormControl>
+                                        </div>
+                                    </Animated>
+                                    <Animated animationIn="fadeIn" animationOut="fadeOut" animationInDelay={200}
+                                              isVisible={values.amComing === 'yes'}>
+                                        <FormControl className={style.foolWidthField}><Field
+                                            color="primary"
+                                            required
+                                            component={CheckboxWithLabel}
+                                            type="checkbox"
+                                            name="needHelpWithTransfer"
+                                            indeterminate={false}
+                                            Label={{label: 'I need help with transfer'}}
+                                        />
+                                            <FormHelperText>If you dont have car or dont know how to come to the place
+                                                select the checkbox and we will try to help you</FormHelperText>
+                                        </FormControl>
+                                    </Animated>
+                                </div>
+                                }
+                                {values.amComing === 'no' &&
+                                <div>
+                                    <Animated
+                                        style={{marginBottom: "1.5em"}}
+                                        animationIn="fadeIn"
+                                        animationOut="fadeOut"
+                                        isVisible={values.amComing === 'no'}>
+                                        <div style={{fontSize: "1.5rem", textAlign: 'center'}}>We are very sorry that
+                                            you
+                                            are not coming
+                                        </div>
+                                        <div style={{fontSize: "1rem", textAlign: 'center'}}>But if you will change your
+                                            mind pleas contact to us
+                                        </div>
+                                    </Animated>
+                                    <Animated animationIn="fadeIn" animationOut="fadeOut"
+                                              animationInDelay={200}
+                                              isVisible={values.amComing === 'no'}>
+                                        <FormControl
+                                            className={style.foolWidthField}>
+                                            <Field
+                                                component={TextField}
+                                                name="extraInfo"
+                                                rows={4}
+                                                variant="outlined"
+                                                multiline
+                                                helperText="If you want to say something feel free to do it"
+                                                placeholder={'If you want to say something feel free to do it'}
+                                            />
+                                        </FormControl>
+                                    </Animated>
+                                </div>
+                                }
+                                <Grid
+                                    container
+                                    direction="row"
+                                    justify="center"
+                                    alignItems="center"
+                                >
+                                    <Button variant="contained" type={'submit'}
+                                            color={'primary'}
+                                            style={{
+                                                // background: '#274d4e',
+                                                // color: "white",
+                                                width: "50%"
+                                            }}>{t`submit`}</Button>
+
+                                </Grid>
+                            </Form>
+                        </ThemeProvider>
                     )}
                 </Formik>
             </Modal>

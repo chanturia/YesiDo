@@ -15,6 +15,7 @@ module.exports = nextTranslate({
     },
     webpack: (config, {isServer}) => {
         if (isServer) {
+            console.log('wakeDyno started')
             wakeDyno(DYNO_URL, dyno_options)
         }
 

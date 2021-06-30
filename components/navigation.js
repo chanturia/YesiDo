@@ -1,15 +1,16 @@
 import React from 'react';
 import style from '/styles/Home.module.scss'
+import {useRouter} from "next/router";
 
 function Navigation() {
-
+    const router = useRouter();
     return (
         <>
             <nav className={style.mainNavigation}>
                 <ul>
-                    <li><a href="#el" className={style.active}>El</a></li>
-                    <li><a href="#ru">Ru</a></li>
-                    <li><a href="#ge">Ge</a></li>
+                    <li><a href="/gr" className={router.locale === 'gr' ? style.active : ''}>El</a></li>
+                    <li><a href="/ru" className={router.locale === 'ru' ? style.active : ''}>Ru</a></li>
+                    <li><a href="/ge">Ge</a></li>
                 </ul>
             </nav>
         </>

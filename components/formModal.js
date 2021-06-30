@@ -12,12 +12,11 @@ import {
     FormHelperText,
     FormLabel, Grid,
     InputLabel,
-    MenuItem, Paper,
-    Radio, Step, StepLabel, Stepper, ThemeProvider, Typography
+    MenuItem, Radio, ThemeProvider
 } from '@material-ui/core';
 import {RadioGroup, Select, TextField, CheckboxWithLabel} from 'formik-material-ui';
 import {Animated} from "react-animated-css";
-
+import axios from 'axios';
 
 const customStyles = {
     overlay: {
@@ -66,7 +65,9 @@ function FormModal() {
                 is: 'yes',
                 then: Yup.number().required('Required')
             }),
-        needHelpWithTransfer: Yup.boolean()
+        needHelpWithTransfer: Yup.boolean(),
+        extraInfo: Yup.string(),
+
     });
 
     function closeModal() {
@@ -86,12 +87,16 @@ function FormModal() {
             >
                 <Formik
                     initialValues={{
+                        firstAndLastName: '',
                         amount: 1,
+                        amComing: '',
+                        needHelpWithTransfer: false
                     }}
                     validationSchema={SignupSchema}
-                    onSubmit={values => {
-                        // same shape as initial values
-                        console.log(values);
+                    onSubmit={async (values) => {
+                        const {data} = await axios.post(
+                            '/api/saveFormData',
+                            values)
                     }}
                 >
                     {({values, errors, touched}) => (
@@ -156,7 +161,6 @@ function FormModal() {
                                               isVisible={values.amComing === 'yes'}>
                                         <FormControl className={style.foolWidthField}><Field
                                             color="primary"
-                                            required
                                             component={CheckboxWithLabel}
                                             type="checkbox"
                                             name="needHelpWithTransfer"
@@ -210,9 +214,8 @@ function FormModal() {
                                 >
                                     <Button variant="contained" type={'submit'}
                                             color={'primary'}
+                                            disabled={Object.keys(errors)?.length}
                                             style={{
-                                                // background: '#274d4e',
-                                                // color: "white",
                                                 width: "50%"
                                             }}>{t`submit`}</Button>
 

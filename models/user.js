@@ -7,6 +7,10 @@ const user = new Schema({
         type: String,
         required: true
     },
+    // userRefId: {
+    //     type: String,
+    //     required: true
+    // },
     amComing: {
         type: String,
         required: true
@@ -15,7 +19,7 @@ const user = new Schema({
         type: String,
         required: false
     },
-    needHelp: {
+    needHelpWithTransfer: {
         type: Boolean,
         required: false
     },

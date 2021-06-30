@@ -1,6 +1,6 @@
 const nextTranslate = require('next-translate')
 const {wakeDyno} = require('heroku-keep-awake');
-const DYNO_URL = 'http://idoyes.herokuapp.com';
+const DYNO_URL = 'https://idoyes.herokuapp.com';
 const dyno_options = {
     interval: 1,
     logging: true,

@@ -6,6 +6,7 @@ import style from '/styles/Home.module.scss'
 import Navigation from "/components/navigation";
 import RunningText from "/components/runningText";
 import FormModal from "/components/formModal";
+import useTranslation from "next-translate/useTranslation";
 
 const Section1 = dynamic(() => {
     return import("/components/section1");
@@ -25,6 +26,8 @@ export default function Home() {
     const sections = [0, 1, 2]
     const [currentSection, setCurrentSection] = useState(0)
     const [isScrolling, setIsScrolling] = useState(false)
+    const {t} = useTranslation('common')
+
     const showSections = () => {
         switch (currentSection) {
             case 0:
@@ -92,9 +95,9 @@ export default function Home() {
                     <img src="/images/Logo.svg" alt="I Do Logo"/>
                 </div>
                 <div className={style.mainPoster}>
-                    <RunningText string="ΓΙΩΡΓΟΣ ΤΣΑΝΤΟΥΡΙΑ & ΟΛΙΑ ΚΟΥΡΙΛΟ & " size={3} bottom={4}
+                    <RunningText string={t`runningTextMain`} size={3} bottom={4}
                                  weight={400}/>{/*TODO resolve Problem with classname*/}
-                    <RunningText string="ΚΟΥΜΠΑΡΟΙ: ΤΣΟΥΚΑΣ ΘΩΜΑΣ & ΒΑΣΙΛΙΚΗ ΓΙΑΝΝΟΥΛΟΥ | " size={1.5} bottom={1.5}
+                    <RunningText string={t`runningTextSecondary`} size={1.5} bottom={1.5}
                                  weight={300}/>{/*TODO resolve Problem with classname*/}
                 </div>
                 {showSections()}

@@ -22,7 +22,7 @@ function RunningText({string, size, bottom, weight}) {
 
         //TimelineLite
         let infinite = gsap.timeline({repeat: -1, paused: true});
-        let time = 12;
+        let time = 20;
 
         infinite
             .fromTo($list, {rotation: 0.01, x: 0}, {
@@ -74,11 +74,13 @@ const Ul = styled.ul`
     top: 0;
 
     li {
+      text-transform: uppercase;
       padding: 0;
     }
   }
 
   li {
+    text-transform: uppercase;
     color: white;
     z-index: 2;
     //font-size: 3rem;

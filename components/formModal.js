@@ -44,13 +44,11 @@ const theme = createMuiTheme({
 
 function FormModal() {
     const [modalIsOpen, setIsOpen] = useState(false);
-    const {t, lang} = useTranslation('common')
+    const {t} = useTranslation('common')
 
     function openModal() {
         setIsOpen(true);
     }
-
-    console.log(lang);
 
     const SignupSchema = Yup.object().shape({
         firstAndLastName: Yup.string()

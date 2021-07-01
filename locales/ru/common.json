@@ -1,6 +1,13 @@
 {
+  "settings1text1": "Мы сказали Да!",
+  "settings1text2": "Нам будет очень \n приятно если вы разделите наше счастье!",
+  "settings2text1": "Пятница",
+  "settings2text2": "13 Августа 2021",
+  "settings2text3": "Время 19:30",
+  "settings3text1": "Ресторан",
+  "settings3text2": "Лутраки",
   "runningTextMain": "Георгий Чантурия & Курило Оля & ",
-  "runningTextSecondary": "Свидетели: Томас Тсукас & Василики Гианулу | ",
+  "runningTextSecondary": "Свидетели: Томас Тсукас & Василики Гианнулу | ",
   "First and last name": "ФИО",
   "First and last name of a main person":"",
   "Are you coming": "Вы можете приехать?",
@@ -17,5 +24,5 @@
   "weAreSorryText": "Нам жаль что вас не будет с нами!",
   "ifYouChangeYourMind": "Если вы передумаете, дайте нам знать",
   "If you want to say something feel free to do it": "Здесь вы можете оставить свое пожелание",
-  "submit": "υποβολή"
+  "submit": "отправить"
 }

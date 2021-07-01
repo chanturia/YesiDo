@@ -2,6 +2,7 @@ import React from 'react';
 import style from '/styles/Home.module.scss'
 import styled from "styled-components";
 import {Animated} from "react-animated-css";
+import useTranslation from "next-translate/useTranslation";
 
 const MainDiv = styled.div`
   display: flex;
@@ -52,15 +53,17 @@ const Map = styled.div`
 `
 const mapUrl = 'https://www.google.com/maps/place/Ypanema/@38.0273584,22.8717234,18z/data=!4m5!3m4!1s0x0:0xa3665ba575930a00!8m2!3d38.02683!4d22.872204'
 export default function section3() {
+    const {t} = useTranslation('common')
+
     return (
         <div className={`${style.section} ${style.state3}`}>
             <div>
                 <Animated animationIn="fadeIn" animationOut="fadeOut" animationInDuration={3000} animationInDelay={0}
-                          className={style.text1}>Κέντρο</Animated>
+                          className={style.text1}>{t`settings3text1`}</Animated>
                 <Animated animationIn="fadeIn" animationOut="fadeOut" animationInDuration={3000} animationInDelay={200}
                           className={style.text2}>Ypanema</Animated>
                 <Animated animationIn="fadeIn" animationOut="fadeOut" animationInDuration={3000} animationInDelay={400}
-                          className={style.text3}>Λουτράκι</Animated>
+                          className={style.text3}>{t`settings3text2`}</Animated>
             </div>
             <div className={style.mapWrapper}>
                 <a href={mapUrl} target="_blank">

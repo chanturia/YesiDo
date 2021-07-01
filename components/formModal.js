@@ -82,7 +82,7 @@ function FormModal() {
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}
                 style={customStyles}
-                contentLabel="Example Modal"
+                contentLabel="Form modal"
                 ariaHideApp={false}
             >
                 <Formik
@@ -109,8 +109,8 @@ function FormModal() {
                                             component={TextField}
                                             name="firstAndLastName"
                                             type="text"
-                                            label="First and last name"
-                                            helperText="First and last name of a main person"
+                                            label={t`First and last name`}
+                                            helperText={t`First and last name of a main person`}
                                         />
                                     </FormControl>
                                 </div>
@@ -119,17 +119,17 @@ function FormModal() {
                                                  component="fieldset"
                                                  required
                                                  error={errors.amComing && touched.amComing}>
-                                        <FormLabel component="legend">Are you coming</FormLabel>
+                                        <FormLabel component="legend">{t`Are you coming`}</FormLabel>
                                         <Field component={RadioGroup} name="amComing">
                                             <FormControlLabel
                                                 value="yes"
                                                 control={<Radio color="primary"/>}
-                                                label="Yes i am coming"
+                                                label={t`Yes i am coming`}
                                             />
                                             <FormControlLabel
                                                 value="no"
                                                 control={<Radio color="primary"/>}
-                                                label="Unfortunately i can not"
+                                                label={t`Unfortunately i can not`}
                                             />
                                         </Field>
                                         {errors.amComing && touched.amComing &&
@@ -143,17 +143,17 @@ function FormModal() {
                                               isVisible={values.amComing === 'yes'}>
                                         <div>
                                             <FormControl className={style.foolWidthField}>
-                                                <InputLabel>Persons</InputLabel>
+                                                <InputLabel>{t`Persons`}</InputLabel>
                                                 <Field
                                                     component={Select}
                                                     name="amount"
                                                 >
-                                                    <MenuItem value={1}>Only Me</MenuItem>
-                                                    <MenuItem value={2}>2 persons</MenuItem>
-                                                    <MenuItem value={3}>3 persons</MenuItem>
-                                                    <MenuItem value={4}>4 persons</MenuItem>
+                                                    <MenuItem value={1}>{t`Only Me`}</MenuItem>
+                                                    <MenuItem value={2}>{t`2 persons`}</MenuItem>
+                                                    <MenuItem value={3}>{t`3 persons`}</MenuItem>
+                                                    <MenuItem value={4}>{t`4 persons`}</MenuItem>
                                                 </Field>
-                                                <FormHelperText>Persons that are coming with you</FormHelperText>
+                                                <FormHelperText>{t`Persons that are coming with you`}</FormHelperText>
                                             </FormControl>
                                         </div>
                                     </Animated>
@@ -165,10 +165,9 @@ function FormModal() {
                                             type="checkbox"
                                             name="needHelpWithTransfer"
                                             indeterminate={false}
-                                            Label={{label: 'I need help with transfer'}}
+                                            Label={{label: t`I need help with transfer`}}
                                         />
-                                            <FormHelperText>If you dont have car or dont know how to come to the place
-                                                select the checkbox and we will try to help you</FormHelperText>
+                                            <FormHelperText>{t`helpText`}</FormHelperText>
                                         </FormControl>
                                     </Animated>
                                 </div>
@@ -180,13 +179,11 @@ function FormModal() {
                                         animationIn="fadeIn"
                                         animationOut="fadeOut"
                                         isVisible={values.amComing === 'no'}>
-                                        <div style={{fontSize: "1.5rem", textAlign: 'center'}}>We are very sorry that
-                                            you
-                                            are not coming
-                                        </div>
-                                        <div style={{fontSize: "1rem", textAlign: 'center'}}>But if you will change your
-                                            mind pleas contact to us
-                                        </div>
+                                        <div style={{fontSize: "1.5rem", textAlign: 'center'}}>{t`weAreSorryText`}</div>
+                                        <div style={{
+                                            fontSize: "1rem",
+                                            textAlign: 'center'
+                                        }}>{t`ifYouChangeYourMind`}</div>
                                     </Animated>
                                     <Animated animationIn="fadeIn" animationOut="fadeOut"
                                               animationInDelay={200}
@@ -199,8 +196,7 @@ function FormModal() {
                                                 rows={4}
                                                 variant="outlined"
                                                 multiline
-                                                helperText="If you want to say something feel free to do it"
-                                                placeholder={'If you want to say something feel free to do it'}
+                                                placeholder={t`If you want to say something feel free to do it`}
                                             />
                                         </FormControl>
                                     </Animated>

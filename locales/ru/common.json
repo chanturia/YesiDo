@@ -1,3 +1,19 @@
 {
-  "submit": "dsfsdf"
+  "First and last name": "ФИО",
+  "First and last name of a main person":"",
+  "Are you coming": "Вы можете приехать?",
+  "Yes i am coming": "Да, я приеду",
+  "Unfortunately i can not":"К сожалению, я не смогу",
+  "Persons": "Люди",
+  "Only Me": "Только я",
+  "2 persons":"2 человека",
+  "3 persons": "3 человека",
+  "4 persons":"4 человека",
+  "Persons that are coming with you": "Люди, которые будут с вами",
+  "I need help with transfer":"Мне нужна помощь с трансфером",
+  "helpText": "Мы свяжемся с вами в ближайшее время, чтобы помочь вам",
+  "weAreSorryText": "Нам жаль что вас не будет с нами!",
+  "ifYouChangeYourMind": "Если вы передумаете, дайте нам знать",
+  "If you want to say something feel free to do it": "Здесь вы можете оставить свое пожелание",
+  "submit": "υποβολή"
 }

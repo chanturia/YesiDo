@@ -8,9 +8,9 @@ function Navigation() {
         <>
             <nav className={style.mainNavigation}>
                 <ul>
-                    <li><a href="/gr" className={router.locale === 'gr' ? style.active : ''}>El</a></li>
-                    <li><a href="/ru" className={router.locale === 'ru' ? style.active : ''}>Ru</a></li>
-                    <li><a href="/ge">Ge</a></li>
+                    <li><a href="/gr" className={router.locale === 'gr' ? style.active : ''}>Ελ</a></li>
+                    <li><a href="/ru" className={router.locale === 'ru' ? style.active : ''}>Ру</a></li>
+                    <li><a href="/ge" className={router.locale === 'ge' ? style.active : ''}>ქა</a></li>
                 </ul>
             </nav>
         </>

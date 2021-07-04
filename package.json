@@ -13,7 +13,6 @@
     "@material-ui/styles": "^4.11.4",
     "animate.css": "^4.1.1",
     "axios": "^0.21.1",
-    "faker": "^5.5.3",
     "formik": "^2.2.9",
     "formik-material-ui": "^3.0.1",
     "gsap": "^3.6.1",
@@ -32,6 +31,7 @@
   },
   "devDependencies": {
     "babel-plugin-root-import": "^6.6.0",
-    "babel-plugin-styled-components": "^1.12.0"
+    "babel-plugin-styled-components": "^1.12.0",
+    "faker": "^5.5.3"
   }
 }

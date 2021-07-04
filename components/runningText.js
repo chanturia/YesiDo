@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useMemo} from 'react';
+import React, {useEffect, useRef} from 'react';
 import styled from "styled-components";
 import {Linear, gsap} from "gsap";
 import style from '/styles/Home.module.scss'
@@ -48,7 +48,7 @@ function RunningText({string, size, bottom, weight}) {
             .to($list, {force3D: true, rotation: 0.01, x: 0, ease: Linear.easeNone, duration: time}, time)
             .progress(1).progress(0)
             .play();
-    });
+    }, []);
 
     return (
         <div className={style.runningTextWrapper} ref={text} style={{bottom: bottom + "rem"}}>
@@ -81,9 +81,7 @@ const Ul = styled.ul`
 
   li {
     text-transform: uppercase;
-    color: white;
     z-index: 2;
-    //font-size: 3rem;
     font-weight: ${props => props.weight || 500};
     letter-spacing: 0.2rem;
     word-spacing: 1rem;

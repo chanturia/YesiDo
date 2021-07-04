@@ -208,7 +208,7 @@ function FormModal() {
                                 >
                                     <Button variant="contained" type={'submit'}
                                             color={'primary'}
-                                            disabled={Object.keys(errors)?.length}
+                                            disabled={Object.keys(errors)?.length !== 0}
                                             style={{
                                                 width: "50%"
                                             }}>{t`submit`}</Button>

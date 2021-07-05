@@ -22,7 +22,7 @@ function RunningText({string, size, bottom, weight}) {
 
         //TimelineLite
         let infinite = gsap.timeline({repeat: -1, paused: true});
-        let time = 20;
+        let time = 30;
 
         infinite
             .fromTo($list, {rotation: 0.01, x: 0}, {

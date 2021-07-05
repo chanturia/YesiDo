@@ -23,6 +23,11 @@ $breakPointMobile: 900px;
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
+  @media (max-width: $breakPointMobile) {
+    height: unset;
+    padding: unset;
+    overflow: auto;
+  }
 
   .formTrigger {
     position: absolute;
@@ -32,7 +37,15 @@ $breakPointMobile: 900px;
     top: 73vh;
     z-index: 2;
     left: 42.2vw;
-
+    @media (max-width: $breakPointMobile) {
+      position: relative;
+      bottom: 0;
+      right: unset;
+      left: 11%;
+      width: 6rem;
+      margin-top: 2rem;
+      top: unset;
+    }
     @-webkit-keyframes rotating {
       from {
         transform: rotate(0deg);
@@ -55,29 +68,13 @@ $breakPointMobile: 900px;
       width: 6rem;
       height: 6rem;
       cursor: pointer;
+      @media (max-width: $breakPointMobile) {
+        width: 6rem;
+        height: 6rem;
+      }
 
       svg {
         fill: $mainTextColor;
-      }
-    }
-  }
-
-  @media (max-width: $breakPointMobile) {
-    height: unset;
-    padding: unset;
-    overflow: auto;
-
-    .formTrigger {
-      position: relative;
-      bottom: 0;
-      right: unset;
-      left: 17%;
-      width: 6rem;
-      margin-top: 2rem;
-
-      span {
-        width: 6rem;
-        height: 6rem;
       }
     }
   }
@@ -168,6 +165,12 @@ $breakPointMobile: 900px;
   top: 14%;
   font-size: 35px;
   font-weight: 600;
+  @media (max-width: $breakPointMobile) {
+    position: absolute;
+    right: 2rem;
+    top: 3.6rem;
+    font-size: 1.5rem;
+  }
 
   ul {
     list-style: none;
@@ -178,6 +181,9 @@ $breakPointMobile: 900px;
     li {
       text-decoration: none;
       padding: 0 40px;
+      @media (max-width: $breakPointMobile) {
+        padding: 0 1rem;
+      }
 
       &:last-child {
         padding-right: 0;
@@ -190,6 +196,10 @@ $breakPointMobile: 900px;
       a {
         color: white;
         text-decoration: none;
+        @media (max-width: $breakPointMobile) {
+          color: $mainBgColor;
+
+        }
 
         &.active {
           color: $mainTextColor;
@@ -198,21 +208,6 @@ $breakPointMobile: 900px;
         &:hover {
           color: $mainTextColor;
         }
-      }
-    }
-  }
-
-  @media (max-width: $breakPointMobile) {
-    position: absolute;
-    right: 2rem;
-    top: 2.8rem;
-    font-size: 1.2rem;
-
-    ul li {
-      padding: 0 1rem;
-
-      a {
-        color: $mainBgColor;
       }
     }
   }
@@ -295,18 +290,38 @@ $breakPointMobile: 900px;
   width: 34rem;
   color: $mainTextColor;
 
+  @media (max-width: $breakPointMobile) {
+    position: relative;
+    top: unset;
+    right: unset;
+    width: 70%;
+    left: 13%;
+    margin-bottom: 2.5rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
   &.state1 {
     h2 {
       font-size: 3.5rem;
       margin-top: 0;
       margin-bottom: 0.5rem;
-
+      @media (max-width: $breakPointMobile) {
+        font-size: 2rem;
+        margin-bottom: 0.1rem;
+      }
     }
 
     p {
       font-size: 2.3rem;
       font-weight: 300;
       margin: 1rem 0;
+      @media (max-width: $breakPointMobile) {
+        font-size: 1.4rem;
+        margin: 0;
+      }
     }
   }
 
@@ -314,6 +329,11 @@ $breakPointMobile: 900px;
     .text1 {
       font-size: 2.9rem;
       font-weight: 400;
+      @media (max-width: $breakPointMobile) {
+        margin-top: 12px;
+        font-size: 1.8rem;
+        font-weight: 400;
+      }
     }
 
     .text2 {
@@ -322,6 +342,12 @@ $breakPointMobile: 900px;
       white-space: nowrap;
       letter-spacing: 1px;
       font-weight: 500;
+      @media (max-width: $breakPointMobile) {
+        text-transform: uppercase;
+        margin-top: 12px;
+        font-size: 1.6rem;
+        font-weight: 600;
+      }
     }
 
     .text3 {
@@ -329,6 +355,11 @@ $breakPointMobile: 900px;
       font-size: 2.9rem;
       letter-spacing: 1px;
       font-weight: 300;
+      @media (max-width: $breakPointMobile) {
+        letter-spacing: 0;
+        margin-top: 0.4rem;
+        font-size: 1.4rem;
+      }
     }
   }
 
@@ -339,6 +370,10 @@ $breakPointMobile: 900px;
       font-size: 2.7rem;
       font-weight: 300;
       letter-spacing: -3px;
+      @media (max-width: $breakPointMobile) {
+        letter-spacing: 0;
+        font-size: 1.4rem;
+      }
     }
 
     .text2 {
@@ -346,6 +381,11 @@ $breakPointMobile: 900px;
       font-weight: 500;
       margin-top: 13px;
       letter-spacing: -3px;
+      @media (max-width: $breakPointMobile) {
+        letter-spacing: 0;
+        font-size: 2.2rem;
+        margin-top: 0;
+      }
     }
 
     .text3 {
@@ -353,6 +393,12 @@ $breakPointMobile: 900px;
       font-weight: 400;
       margin-top: 13px;
       letter-spacing: -3px;
+      @media (max-width: $breakPointMobile) {
+        letter-spacing: 0;
+        font-size: 1.8rem;
+        margin-top: 0;
+        font-weight: 400;
+      }
     }
 
     .mapWrapper {
@@ -375,80 +421,19 @@ $breakPointMobile: 900px;
         transition: all .4s;
         transform: translateX(-50%);
 
-        &:hover {
-          height: 9rem;
-          width: 9rem;
-
-        }
-      }
-    }
-  }
-
-  @media (max-width: $breakPointMobile) {
-    position: relative;
-    top: unset;
-    right: unset;
-    width: 70%;
-    left: 17%;
-    margin-bottom: 2.5rem;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-
-    &.state1 {
-      h2 {
-        font-size: 2rem;
-        margin-bottom: 0.1rem;
-      }
-
-      p {
-        font-size: 1.5rem;
-        margin: 0;
-      }
-    }
-
-    &.state2 {
-      .text1 {
-        font-size: 1.8rem;
-      }
-
-      .text2 {
-        margin-top: 12px;
-        font-size: 1.8rem;
-        font-weight: 600;
-      }
-
-      .text3 {
-        margin-top: 0.4rem;
-        font-size: 1.4rem;
-      }
-    }
-    &.state3 {
-      .text1 {
-        font-size: 1.8rem;
-      }
-
-      .text2 {
-        font-size: 2.2rem;
-        margin-top: 0;
-      }
-
-      .text3 {
-        font-size: 1.5rem;
-        margin-top: 0;
-      }
-
-      .mapWrapper {
-        .map {
+        @media (max-width: $breakPointMobile) {
           border: 2px solid #274d4e;
           height: 3rem;
           width: 3rem;
           font-size: 1rem;
           margin-left: 3.4rem;
           margin-bottom: 0;
+        }
 
-          &:hover {
+        &:hover {
+          height: 9rem;
+          width: 9rem;
+          @media (max-width: $breakPointMobile) {
             border: 2px solid #274d4e;
             height: 3rem;
             width: 3rem;

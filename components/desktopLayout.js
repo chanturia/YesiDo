@@ -7,6 +7,7 @@ import useTranslation from "next-translate/useTranslation";
 import Section1 from "/components/section1";
 import Section2 from "/components/section2";
 import Section3 from "/components/section3";
+import logo from "/svg/logo";
 
 
 export default function DesktopLayout() {
@@ -76,7 +77,7 @@ export default function DesktopLayout() {
                 <div className={style.centerBG}>
                 </div>
                 <div className={style.mainLogo}>
-                    <img src="/images/Logo.svg" alt="I Do Logo"/>
+                    {logo}
                 </div>
                 <div className={style.mainPoster}>
                     <RunningText string={t`runningTextMain`}

@@ -71,7 +71,7 @@ $breakPointMobile: 700px;
       position: relative;
       bottom: 0;
       right: unset;
-      left: 5rem;
+      left: 17%;
       width: 6rem;
       margin-top: 2rem;
 
@@ -100,9 +100,15 @@ $breakPointMobile: 700px;
   position: absolute;
   top: 3.5rem;
   left: 3.7rem;
+  width: 8.5rem;
 
   img {
     width: 100%;
+  }
+
+  svg {
+    width: 100%;
+    height: auto;
   }
 
   @media (max-width: $breakPointMobile) {
@@ -200,10 +206,10 @@ $breakPointMobile: 700px;
     position: fixed;
     right: 2rem;
     top: 2.8rem;
-    font-size: 2rem;
+    font-size: 1.2rem;
 
     ul li {
-      padding: 0 1.5rem;
+      padding: 0 1rem;
 
       a {
         color: $mainBgColor;

@@ -7,6 +7,7 @@ import useTranslation from "next-translate/useTranslation";
 import Section1 from "/components/section1";
 import Section2 from "/components/section2";
 import Section3 from "/components/section3";
+import logoMobile from "/svg/logoMobile";
 
 
 export default function MobileLayout() {
@@ -19,7 +20,7 @@ export default function MobileLayout() {
             <section className={style.mainSection}>
                 <Navigation/>
                 <div className={style.mainLogo}>
-                    <img src="/images/Logo.svg" alt="I Do Logo"/>
+                    {logoMobile}
                 </div>
                 <div className={style.mainPoster}>
                 </div>

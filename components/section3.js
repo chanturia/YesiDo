@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import style from '/styles/Home.module.scss'
 import {Animated} from "react-animated-css";
 import useTranslation from "next-translate/useTranslation";
@@ -8,7 +8,7 @@ const mapUrl = 'https://www.google.com/maps/place/Ypanema/@38.0273584,22.8717234
 
 export default function section3() {
     const {t} = useTranslation('common')
-    let [isVisible, currentElement] = useVisibility(0, 1000);
+    let [isVisible, currentElement] = useVisibility(-20);
     isVisible = window.isMobile ? isVisible : true
 
     return (

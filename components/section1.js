@@ -6,7 +6,7 @@ import useVisibility from "/hooks/isVisible";
 
 export default function section1() {
     const {t} = useTranslation('common')
-    let [isVisible, currentElement] = useVisibility(0, 1000);
+    let [isVisible, currentElement] = useVisibility(-20);
     isVisible = window.isMobile ? isVisible : true
 
     return (

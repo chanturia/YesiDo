@@ -17,6 +17,8 @@
     "formik-material-ui": "^3.0.1",
     "gsap": "^3.6.1",
     "heroku-keep-awake": "^1.1.2",
+    "lodash": "^4.17.21",
+    "lodash.throttle": "^4.1.1",
     "mongoose": "^5.12.15",
     "next": "10.1.3",
     "next-translate": "^1.0.7",

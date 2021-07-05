@@ -280,7 +280,7 @@ $breakPointMobile: 900px;
 
 .mobileSectionsWrapper {
   position: relative;
-  padding: 2rem 0 3rem 0;
+  padding: 4rem 0 3rem 0;
   overflow: hidden;
 }
 
@@ -417,7 +417,7 @@ $breakPointMobile: 900px;
         font-size: 1.6rem;
         font-weight: 500;
         margin-left: 6rem;
-        margin-bottom: 3rem;
+        margin-bottom: 0;
         cursor: pointer;
         transition: all .4s;
         transform: translateX(-50%);

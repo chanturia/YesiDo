@@ -36,7 +36,7 @@ export default function MobileLayout() {
                                  weight={300}
                     />
                 </div>
-                <div className={style.mobileSectionsWrapper} style={{position: "relative", padding: "2rem 0 3rem 0"}}>
+                <div className={style.mobileSectionsWrapper}>
                     <div className={style.centerBG}>
                     </div>
                     <div>

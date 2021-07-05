@@ -13,8 +13,10 @@ export default function Home() {
     const renderLayout = (width) => {
 
         if (width <= breakPointMobile) {
+            window.isMobile = true;
             return <MobileLayout/>
         } else if (width > breakPointMobile) {
+            window.isMobile = false;
             return <DesktopLayout/>
         }
     }

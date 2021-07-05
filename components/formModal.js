@@ -18,21 +18,7 @@ import {RadioGroup, Select, TextField, CheckboxWithLabel} from 'formik-material-
 import {Animated} from "react-animated-css";
 import axios from 'axios';
 
-const customStyles = {
-    overlay: {
-        backgroundColor: "rgb(0 0 0 / 75%)",
-        zIndex: 999
-    },
-    content: {
-        top: '50%',
-        left: '50%',
-        right: 'auto',
-        bottom: 'auto',
-        marginRight: '-50%',
-        transform: 'translate(-50%, -50%)',
-        width: "40rem"
-    },
-};
+
 const theme = createMuiTheme({
     palette: {
         primary: {
@@ -46,6 +32,21 @@ function FormModal() {
     const [modalIsOpen, setIsOpen] = useState(false);
     const {t} = useTranslation('common')
 
+    const customStyles = {
+        overlay: {
+            backgroundColor: "rgb(0 0 0 / 75%)",
+            zIndex: 999
+        },
+        content: {
+            top: '50%',
+            left: '50%',
+            right: 'auto',
+            bottom: 'auto',
+            marginRight: '-50%',
+            transform: 'translate(-50%, -50%)',
+            width: window.isMobile ? "95%" : "40rem"
+        },
+    };
     function openModal() {
         setIsOpen(true);
     }

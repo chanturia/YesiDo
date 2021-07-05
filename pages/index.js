@@ -3,15 +3,18 @@ import Head from 'next/head'
 import useWindowDimensions from "/hooks/WindowDimensions";
 import MobileLayout from "/components/mobileLayout";
 import DesktopLayout from "/components/desktopLayout";
+import style from '/styles/Home.module.scss'
+
+const breakPointMobile = parseInt(style.breakPointMobile)
 
 export default function Home() {
     const {width} = useWindowDimensions();
 
     const renderLayout = (width) => {
 
-        if (width <= 900) {
+        if (width <= breakPointMobile) {
             return <MobileLayout/>
-        } else if (width > 900) {
+        } else if (width > breakPointMobile) {
             return <DesktopLayout/>
         }
     }

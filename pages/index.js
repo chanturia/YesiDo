@@ -9,9 +9,9 @@ export default function Home() {
 
     const renderLayout = (width) => {
 
-        if (width <= 700) {
+        if (width <= 900) {
             return <MobileLayout/>
-        } else if (width > 700) {
+        } else if (width > 900) {
             return <DesktopLayout/>
         }
     }
@@ -20,6 +20,7 @@ export default function Home() {
         <>
             <Head>
                 <title>I DO</title>
+                <meta name="viewport" content="width=device-width, initial-scale=1"/>
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"/>
                 <link rel="icon" href="/favicon.ico"/>
             </Head>

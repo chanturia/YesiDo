@@ -2,7 +2,7 @@
 
 $mainTextColor: #274d4e;
 $mainBgColor: #f9e2d4;
-$breakPointMobile: 700px;
+$breakPointMobile: 900px;
 
 
 .container {
@@ -29,9 +29,9 @@ $breakPointMobile: 700px;
     display: flex;
     justify-content: center;
     align-content: center;
-    bottom: 10rem;
+    top: 73vh;
     z-index: 2;
-    right: 63.5rem;
+    left: 42.2vw;
 
     @-webkit-keyframes rotating {
       from {
@@ -112,7 +112,7 @@ $breakPointMobile: 700px;
   }
 
   @media (max-width: $breakPointMobile) {
-    position: fixed;
+    position: absolute;
     top: 2rem;
     left: 2rem;
     width: 4rem;
@@ -203,7 +203,7 @@ $breakPointMobile: 700px;
   }
 
   @media (max-width: $breakPointMobile) {
-    position: fixed;
+    position: absolute;
     right: 2rem;
     top: 2.8rem;
     font-size: 1.2rem;
@@ -290,9 +290,8 @@ $breakPointMobile: 700px;
 
 .section {
   position: absolute;
-  top: 23rem;
-  right: 35rem;
-  height: 17rem;
+  top: 38.8vh;
+  left: 42.6vw;
   width: 34rem;
   color: $mainTextColor;
 
@@ -389,7 +388,6 @@ $breakPointMobile: 700px;
     position: relative;
     top: unset;
     right: unset;
-    height: unset;
     width: 70%;
     left: 17%;
     margin-bottom: 2.5rem;

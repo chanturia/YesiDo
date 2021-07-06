@@ -4,14 +4,13 @@ import useWindowDimensions from "/hooks/WindowDimensions";
 import MobileLayout from "/components/mobileLayout";
 import DesktopLayout from "/components/desktopLayout";
 import style from '/styles/Home.module.scss'
+import axios from 'axios'
 
 const breakPointMobile = parseInt(style.breakPointMobile)
 
-export default function Home() {
+export default function Home({user}) {
     const {width} = useWindowDimensions();
-
     const renderLayout = (width) => {
-
         if (width <= breakPointMobile) {
             window.isMobile = true;
             return <MobileLayout/>
@@ -20,7 +19,9 @@ export default function Home() {
             return <DesktopLayout/>
         }
     }
-
+    if (user) {
+        window.currentUser = user
+    }
     return (
         <>
             <Head>
@@ -32,4 +33,25 @@ export default function Home() {
             {renderLayout(width)}
         </>
     )
+}
+
+export async function getServerSideProps({query}) {
+    let user = {}
+    if (query?.userCode) {
+
+        try {
+            const {data} = await axios.post(
+                'http://localhost:1234/api/getUserByCode',
+                {userCode: query.userCode})
+            if (user) {
+                user = data
+            }
+        } catch (err) {
+            console.log(err.message)
+        }
+
+    }
+    return {
+        props: {user: user},
+    }
 }

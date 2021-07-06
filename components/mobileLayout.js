@@ -2,7 +2,7 @@ import React, {useRef} from "react";
 import style from '/styles/Home.module.scss'
 import Navigation from "/components/navigation";
 import RunningText from "/components/runningText";
-import FormModal from "/components/formModal";
+import FormModal from "/components/formModal/formModal";
 import useTranslation from "next-translate/useTranslation";
 import Section1 from "/components/section1";
 import Section2 from "/components/section2";

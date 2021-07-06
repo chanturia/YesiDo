@@ -7,7 +7,7 @@ import FormState2 from "/components/formModal/formState2";
 
 function FormModal() {
     const [modalIsOpen, setIsOpen] = useState(false);
-    let [currentForm, setCurrentForm] = useState(window.currentUser?.name ? 2 : 1);
+    let [currentForm, setCurrentForm] = useState(window.currentUser?.firstAndLastName ? 2 : 1);
 
     const nextForm = () => {
         if (currentForm < 2) {

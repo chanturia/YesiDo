@@ -30,7 +30,7 @@ const theme = createMuiTheme({
 function FormState2() {
     const {t} = useTranslation('common')
     let initialValues = {
-        firstAndLastName: window.currentUser.name,
+        firstAndLastName: window.currentUser.firstAndLastName,
         amount: 1,
         amComing: '',
         needHelpWithTransfer: false
@@ -66,7 +66,13 @@ function FormState2() {
     return (
         <>
             <Formik
-                initialValues={initialValues}
+                initialValues={{
+                    firstAndLastName: window.currentUser.firstAndLastName,
+                    amount: 1,
+                    amComing: '',
+                    needHelpWithTransfer: false
+                }
+                }
                 validationSchema={SignupSchema}
                 onSubmit={async (values) => {
                     const {data} = await axios.post(

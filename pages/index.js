@@ -6,6 +6,7 @@ import DesktopLayout from "/components/desktopLayout";
 import style from '/styles/Home.module.scss'
 import axios from 'axios'
 import {Context} from "/store/Store";
+import absoluteUrl from 'next-absolute-url'
 
 const breakPointMobile = parseInt(style.breakPointMobile)
 
@@ -42,13 +43,16 @@ export default function Home({user}) {
     )
 }
 
-export async function getServerSideProps({query}) {
+export async function getServerSideProps(context) {
     let user = {}
+    let {query, req} = context
+    const {origin} = absoluteUrl(req)
+
     if (query?.userCode) {
 
         try {
             const {data} = await axios.post(
-                'http://localhost:1234/api/getUserByCode',
+                `${origin}/api/getUserByCode`,
                 {userCode: query.userCode})
             if (user) {
                 user = data

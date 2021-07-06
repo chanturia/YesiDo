@@ -1,22 +1,5 @@
 import connectDB from '/middleware/mongodb';
 import User from '/models/user';
-import faker from "faker";
-
-
-// export default function saveFormData(req, res) {
-//     const {method} = req
-//
-//     console.log(req);
-//     switch (method) {
-//         case 'POST':
-//             // Update or create data in your database
-//             res.status(200).json(req)
-//             break
-//         default:
-//             res.setHeader('Allow', ['POST', 'GET'])
-//             res.status(405).end(`Method ${method} Not Allowed`)
-//     }
-// }
 
 const saveFormData = async (req, res) => {
     const {method, body} = req
@@ -36,7 +19,6 @@ const saveFormData = async (req, res) => {
         });
         // Create new user
         const userCreated = await user.save();
-        console.log(userCreated)
         return res.status(200).send(userCreated);
     }
 

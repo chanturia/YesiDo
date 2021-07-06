@@ -14,11 +14,6 @@ function FormModal() {
             setCurrentForm(2)
         }
     }
-    // const previousForm = () => {
-    //     if (formState > 0) {
-    //         setFormState(formState--)
-    //     }
-    // }
     const customStyles = {
         overlay: {
             backgroundColor: "rgb(0 0 0 / 75%)",
@@ -31,7 +26,8 @@ function FormModal() {
             bottom: 'auto',
             marginRight: '-50%',
             transform: 'translate(-50%, -50%)',
-            width: window.isMobile ? "95%" : "40rem"
+            width: window.isMobile ? "95%" : "40rem",
+            overflow: "initial"
         },
     };
 
@@ -65,8 +61,10 @@ function FormModal() {
                 style={customStyles}
                 contentLabel="Form modal"
                 ariaHideApp={false}
+                shouldCloseOnOverlayClick={false}
             >
                 {renderForm()}
+                <div className={style.closeModal} onClick={() => closeModal()}><span>X</span></div>
             </Modal>
         </>
     );

@@ -31,13 +31,6 @@ export default function DesktopLayout() {
                 return <Section1/>
         }
     }
-    // useEffect(() => {
-    //     showSections()
-    // }, [])
-
-    // useEffect(() => {
-    //     showSections()
-    // }, [currentSection])
 
     useEffect(() => {
         if (isScrolling) {

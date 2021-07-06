@@ -5,14 +5,10 @@ import * as Yup from 'yup';
 import useTranslation from 'next-translate/useTranslation'
 import {
     Button, createMuiTheme,
-    FormControl,
-    FormControlLabel,
-    FormHelperText,
-    FormLabel, Grid,
-    InputLabel,
-    MenuItem, Radio, ThemeProvider
+    FormControl, Grid,
+    ThemeProvider
 } from '@material-ui/core';
-import {RadioGroup, Select, TextField, CheckboxWithLabel} from 'formik-material-ui';
+import {TextField} from 'formik-material-ui';
 import {Animated} from "react-animated-css";
 import axios from 'axios';
 
@@ -28,6 +24,7 @@ const theme = createMuiTheme({
 
 function FormState1({nextForm}) {
     const {t} = useTranslation('common')
+    const [errorUserNotFound, setErrorUserNotFound] = useState(false)
     let initialValues = {
         userCode: ''
     }
@@ -49,11 +46,13 @@ function FormState1({nextForm}) {
                         const {data} = await axios.post(
                             '/api/getUserByCode',
                             values)
-                        console.log(data)
                         window.currentUser = data
+                        setErrorUserNotFound(false)
                         nextForm()
-                    } catch (error) {
-                        console.log(error)
+                    } catch ({response}) {
+                        if (response.status === 404) {
+                            setErrorUserNotFound(true)
+                        }
                     }
                 }}
             >
@@ -68,8 +67,9 @@ function FormState1({nextForm}) {
                                         name="userCode"
                                         type="text"
                                         label={t`Your Code`}
-                                        helperText={t`The code that you get in message`}
+                                        helperText={!errorUserNotFound ? t`The code that you get in message` : t`Wrong User code`}
                                         variant="outlined"
+                                        error={Object.keys(errors)?.length !== 0 || errorUserNotFound}
                                     />
                                 </FormControl>
                             </div>

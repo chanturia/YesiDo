@@ -1,5 +1,5 @@
 import connectDB from '/middleware/mongodb';
-import User from '/models/user';
+import UserSettings from '/models/usersetting';
 
 const getUserByCode = async (req, res) => {
     const {method, body} = req
@@ -10,8 +10,7 @@ const getUserByCode = async (req, res) => {
 
     if (body) {
         const {userCode} = body
-        let user = await User.find({"userCode": userCode})
-
+        let user = await UserSettings.find({"userCode": userCode})
         if (user.length > 0) {
             return res.status(200).send(user[0]);
         } else {

@@ -22,7 +22,6 @@ import axios from 'axios';
 const theme = createMuiTheme({
     palette: {
         primary: {
-            // Purple and green play nicely together.
             main: '#274d4e',
         },
     },
@@ -35,6 +34,15 @@ function FormState2() {
         amount: 1,
         amComing: '',
         needHelpWithTransfer: false
+    }
+
+    const getAllowedAmount = (number) => {
+        number = parseInt(number)
+        let result = [<MenuItem key={1} value={1}>{t`Only Me`}</MenuItem>]
+        for (let i = 2; i <= number; i++) {
+            result.push(<MenuItem key={i} value={i}>{t(`${i} persons`)}</MenuItem>)
+        }
+        return result
     }
 
     const SignupSchema = Yup.object().shape({
@@ -116,10 +124,20 @@ function FormState2() {
                                                 component={Select}
                                                 name="amount"
                                             >
-                                                <MenuItem value={1}>{t`Only Me`}</MenuItem>
-                                                <MenuItem value={2}>{t`2 persons`}</MenuItem>
-                                                <MenuItem value={3}>{t`3 persons`}</MenuItem>
-                                                <MenuItem value={4}>{t`4 persons`}</MenuItem>
+                                                {getAllowedAmount(window.currentUser.allowedAmmount)}
+                                                {/*<MenuItem value={1}>{t`Only Me`}</MenuItem>*/}
+                                                {/*{window.currentUser.allowedAmount &&*/}
+                                                {/*new Array(window.currentUser.allowedAmount)*/}
+                                                {/*    .fill(0)*/}
+                                                {/*    .forEach(item => {*/}
+                                                {/*        return <MenuItem*/}
+                                                {/*            value={item + 1}>{t`${item + 1} persons`}</MenuItem>*/}
+                                                {/*    })*/}
+
+                                                {/*}*/}
+                                                {/*<MenuItem value={2}>{t`2 persons`}</MenuItem>*/}
+                                                {/*<MenuItem value={3}>{t`3 persons`}</MenuItem>*/}
+                                                {/*<MenuItem value={4}>{t`4 persons`}</MenuItem>*/}
                                             </Field>
                                             <FormHelperText>{t`Persons that are coming with you`}</FormHelperText>
                                         </FormControl>

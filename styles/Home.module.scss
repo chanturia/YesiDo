@@ -220,12 +220,16 @@ $breakPointMobile: 900px;
   bottom: -46px;
   width: 26%;
   pointer-events: none;
+  @media (max-width: $breakPointMobile) {
+    right: -2rem;
+    bottom: -2rem;
+    width: 51%;
+  }
 
   .flower1, .flower2, .flower3 {
     position: absolute;
     right: 0;
     bottom: 0;
-
   }
 
   .flower1 {
@@ -233,6 +237,12 @@ $breakPointMobile: 900px;
     bottom: 0;
     z-index: 1;
     width: 116%;
+    @media (max-width: $breakPointMobile) {
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+      width: 112%;
+    }
   }
 
   .flower2 {
@@ -245,36 +255,15 @@ $breakPointMobile: 900px;
     z-index: 1;
     bottom: -118px;
     right: 127px;
+    @media (max-width: $breakPointMobile) {
+      width: 144%;
+      bottom: -3rem;
+      right: 2rem;
+    }
   }
 
   img {
     width: 100%;
-
-  }
-
-  @media (max-width: $breakPointMobile) {
-    right: -2rem;
-    bottom: -2rem;
-    width: 51%;
-
-    .flower1 {
-      right: 0;
-      bottom: 0;
-      z-index: 1;
-      width: 112%;
-    }
-
-    .flower2 {
-      width: 130%;
-      z-index: 2;
-    }
-
-    .flower3 {
-      width: 144%;
-      z-index: 1;
-      bottom: -3rem;
-      right: 2rem;
-    }
   }
 }
 
@@ -471,4 +460,32 @@ $breakPointMobile: 900px;
 .foolWidthField {
   width: 100%;
   margin-bottom: 1.5rem !important;
+}
+
+.closeModal {
+  position: absolute;
+  top: -1.5rem;
+  right: -1.5rem;
+  padding: 1.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bolder;
+  background: #274d4e;
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+
+  @media (max-width: $breakPointMobile) {
+    top: -1rem;
+    right: -0.5rem;
+    padding: 1.1rem;
+  }
+
+  span {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0 auto;
+  }
 }

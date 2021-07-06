@@ -30,6 +30,10 @@ const user = new Schema({
     createdAt: {
         type: Date,
         default: Date.now
+    },
+    lastUpdated: {
+        type: Date,
+        required: false
     }
 });
 

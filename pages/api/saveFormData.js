@@ -10,17 +10,20 @@ const saveFormData = async (req, res) => {
 
     if (body) {
         const {firstAndLastName, userCode, amount, amComing, needHelpWithTransfer, extraInfo} = body
-        let user = new User({
+        const data = {
             firstAndLastName: firstAndLastName,
             amount: amount,
             userCode: userCode,
             needHelpWithTransfer: needHelpWithTransfer,
             extraInfo: extraInfo,
             amComing: amComing,
-        });
-        // Create new user
-        const userCreated = await user.save();
-        return res.status(200).send(userCreated);
+            lastUpdated: new Date()
+        }
+        const query = {"userCode": userCode}
+        const user = await User.findOneAndUpdate(query, data, {upsert: true});
+
+        // const userCreated = await user.save();
+        return res.status(200).send(user);
     }
 
     return res.status(400).end(`No data provided`)

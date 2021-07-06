@@ -1,7 +1,8 @@
 import '/styles/globals.scss'
+import Store from '/store/Store'
 
 function MyApp({Component, pageProps}) {
-    return <SafeHydrate><Component {...pageProps} /></SafeHydrate>
+    return <SafeHydrate><Store><Component {...pageProps} /></Store></SafeHydrate>
 }
 
 function SafeHydrate({children}) {

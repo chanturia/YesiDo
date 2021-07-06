@@ -3,14 +3,14 @@ import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
 const user = new Schema({
-    name: {
+    firstAndLastName: {
         type: String,
         required: true
     },
-    // userRefId: {
-    //     type: String,
-    //     required: true
-    // },
+    userCode:{
+        type: String,
+        required: true
+    },
     amComing: {
         type: String,
         required: true

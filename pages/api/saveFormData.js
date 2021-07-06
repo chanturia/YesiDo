@@ -9,10 +9,11 @@ const saveFormData = async (req, res) => {
     }
 
     if (body) {
-        const {firstAndLastName, amount, amComing, needHelpWithTransfer, extraInfo} = body
-        var user = new User({
-            name: firstAndLastName,
+        const {firstAndLastName, userCode, amount, amComing, needHelpWithTransfer, extraInfo} = body
+        let user = new User({
+            firstAndLastName: firstAndLastName,
             amount: amount,
+            userCode: userCode,
             needHelpWithTransfer: needHelpWithTransfer,
             extraInfo: extraInfo,
             amComing: amComing,

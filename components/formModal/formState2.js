@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import style from '/styles/Home.module.scss'
 import asterisk from "../../svg/asterisk";
 import Modal from 'react-modal';
@@ -17,6 +17,7 @@ import {
 import {RadioGroup, Select, TextField, CheckboxWithLabel} from 'formik-material-ui';
 import {Animated} from "react-animated-css";
 import axios from 'axios';
+import {Context} from "/store/Store";
 
 
 const theme = createMuiTheme({
@@ -29,12 +30,7 @@ const theme = createMuiTheme({
 
 function FormState2() {
     const {t} = useTranslation('common')
-    let initialValues = {
-        firstAndLastName: window.currentUser.firstAndLastName,
-        amount: 1,
-        amComing: '',
-        needHelpWithTransfer: false
-    }
+    const [state, dispatch] = useContext(Context);
 
     const getAllowedAmount = (number) => {
         number = parseInt(number)
@@ -67,7 +63,8 @@ function FormState2() {
         <>
             <Formik
                 initialValues={{
-                    firstAndLastName: window.currentUser.firstAndLastName,
+                    firstAndLastName: state.currentUser.firstAndLastName,
+                    userCode: state.currentUser.userCode,
                     amount: 1,
                     amComing: '',
                     needHelpWithTransfer: false
@@ -130,20 +127,7 @@ function FormState2() {
                                                 component={Select}
                                                 name="amount"
                                             >
-                                                {getAllowedAmount(window.currentUser.allowedAmmount)}
-                                                {/*<MenuItem value={1}>{t`Only Me`}</MenuItem>*/}
-                                                {/*{window.currentUser.allowedAmount &&*/}
-                                                {/*new Array(window.currentUser.allowedAmount)*/}
-                                                {/*    .fill(0)*/}
-                                                {/*    .forEach(item => {*/}
-                                                {/*        return <MenuItem*/}
-                                                {/*            value={item + 1}>{t`${item + 1} persons`}</MenuItem>*/}
-                                                {/*    })*/}
-
-                                                {/*}*/}
-                                                {/*<MenuItem value={2}>{t`2 persons`}</MenuItem>*/}
-                                                {/*<MenuItem value={3}>{t`3 persons`}</MenuItem>*/}
-                                                {/*<MenuItem value={4}>{t`4 persons`}</MenuItem>*/}
+                                                {getAllowedAmount(state.currentUser.allowedAmmount)}
                                             </Field>
                                             <FormHelperText>{t`Persons that are coming with you`}</FormHelperText>
                                         </FormControl>

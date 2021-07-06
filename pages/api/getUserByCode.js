@@ -10,7 +10,7 @@ const getUserByCode = async (req, res) => {
 
     if (body) {
         const {userCode} = body
-        let user = await UserSettings.find({"userCode": userCode})
+        let user = await UserSettings.find({"userCode": userCode.toLowerCase()})
         if (user.length > 0) {
             return res.status(200).send(user[0]);
         } else {

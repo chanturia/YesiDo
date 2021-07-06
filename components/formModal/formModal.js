@@ -1,13 +1,15 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import style from '/styles/Home.module.scss'
 import asterisk from "/svg/asterisk";
 import Modal from 'react-modal';
 import FormState1 from "/components/formModal/formState1";
 import FormState2 from "/components/formModal/formState2";
+import {Context} from "/store/Store";
 
 function FormModal() {
     const [modalIsOpen, setIsOpen] = useState(false);
-    let [currentForm, setCurrentForm] = useState(window.currentUser?.firstAndLastName ? 2 : 1);
+    const [state, dispatch] = useContext(Context);
+    let [currentForm, setCurrentForm] = useState(1);
 
     const nextForm = () => {
         if (currentForm < 2) {
@@ -30,6 +32,9 @@ function FormModal() {
             overflow: "initial"
         },
     };
+    useEffect(() => {
+        setCurrentForm(Object.keys(state.currentUser).length > 0 ? 2 : 1)
+    }, [state.currentUser])
 
     function renderForm() {
         if (currentForm === 1) {

@@ -77,9 +77,17 @@ function FormState2() {
                         values)
                 }}
             >
-                {({values, errors, touched}) => (
+                {({values, errors, touched, setFieldValue}) => (
                     <ThemeProvider theme={theme}>
-                        <Form>
+                        <Form onChange={() => {
+                            if (values.amComing === "no") {
+                                setFieldValue('amount', 1)
+                                setFieldValue('needHelpWithTransfer', false)
+                            }
+                            if (values.amComing === "yes") {
+                                setFieldValue('extraInfo', '')
+                            }
+                        }}>
                             <div>
                                 <FormControl className={style.foolWidthField} style={{marginTop: 0}}>
                                     <Field

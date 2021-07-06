@@ -20,25 +20,11 @@ const saveFormData = async (req, res) => {
             lastUpdated: new Date()
         }
         const query = {"userCode": userCode}
-        const user = await User.findOneAndUpdate(query, data, {upsert: true});
-
-        // const userCreated = await user.save();
+        const user = await User.findOneAndUpdate(query, data, {upsert: true, new: true});
         return res.status(200).send(user);
     }
 
     return res.status(400).end(`No data provided`)
-
-    // const user = new User({
-    //     name: faker.name.findName(),
-    //     amount: faker.datatype.number({min: 1, max: 4}),
-    //     needHelp: faker.datatype.boolean(),
-    //     extraInfo: faker.lorem.sentences(),
-    //     amComing: 'yes',
-    // });
-    // // Create new user
-    // const newUser = await user.save();
-    // return res.status(200).send(newUser);
-
 };
 
 export default connectDB(saveFormData);

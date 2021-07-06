@@ -1,7 +1,5 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext} from 'react';
 import style from '/styles/Home.module.scss'
-import asterisk from "../../svg/asterisk";
-import Modal from 'react-modal';
 import {Formik, Form, Field} from 'formik';
 import * as Yup from 'yup';
 import useTranslation from 'next-translate/useTranslation'
@@ -28,7 +26,7 @@ const theme = createMuiTheme({
     },
 });
 
-function FormState2() {
+function FormState2({nextForm}) {
     const {t} = useTranslation('common')
     const [state, dispatch] = useContext(Context);
 
@@ -75,6 +73,8 @@ function FormState2() {
                     const {data} = await axios.post(
                         '/api/saveFormData',
                         values)
+                    dispatch({type: 'SET_CURRENT_USER', payload:  {...state.currentUser, ...data}})
+                    nextForm()
                 }}
             >
                 {({values, errors, touched, setFieldValue}) => (

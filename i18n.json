@@ -1,7 +1,13 @@
 {
-  "locales": ["gr", "ru", "ge"],
+  "locales": [
+    "ru",
+    "gr",
+    "ge"
+  ],
   "defaultLocale": "gr",
   "pages": {
-    "*": ["common"]
+    "*": [
+      "common"
+    ]
   }
 }

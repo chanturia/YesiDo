@@ -330,7 +330,6 @@ $breakPointMobile: 900px;
       margin-top: 12px;
       font-size: 3.8rem;
       white-space: nowrap;
-      letter-spacing: 1px;
       font-weight: 500;
       @media (max-width: $breakPointMobile) {
         text-transform: uppercase;
@@ -343,7 +342,6 @@ $breakPointMobile: 900px;
     .text3 {
       margin-top: 18px;
       font-size: 2.9rem;
-      letter-spacing: 1px;
       font-weight: 300;
       @media (max-width: $breakPointMobile) {
         letter-spacing: 0;
@@ -359,7 +357,6 @@ $breakPointMobile: 900px;
     .text1 {
       font-size: 2.7rem;
       font-weight: 300;
-      letter-spacing: -3px;
       @media (max-width: $breakPointMobile) {
         letter-spacing: 0;
         font-size: 1.4rem;
@@ -370,7 +367,6 @@ $breakPointMobile: 900px;
       font-size: 4.3rem;
       font-weight: 500;
       margin-top: 13px;
-      letter-spacing: -3px;
       @media (max-width: $breakPointMobile) {
         letter-spacing: 0;
         font-size: 2.2rem;
@@ -382,7 +378,6 @@ $breakPointMobile: 900px;
       font-size: 3.2rem;
       font-weight: 400;
       margin-top: 13px;
-      letter-spacing: -3px;
       @media (max-width: $breakPointMobile) {
         letter-spacing: 0;
         font-size: 1.8rem;

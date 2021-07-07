@@ -2,7 +2,6 @@ import React, {useContext, useEffect} from 'react';
 import style from '/styles/Home.module.scss'
 import useTranslation from 'next-translate/useTranslation'
 import {Animated} from "react-animated-css";
-import axios from 'axios';
 import {Context} from "/store/Store";
 
 
@@ -12,7 +11,8 @@ function FormState3() {
 
     return (
         <>
-            <Animated animationIn="fadeIn" animationOut="fadeOut" animationInDuration={3000} animationInDelay={0}>
+            <Animated animationIn="fadeIn" animationOut="fadeOut" animationInDuration={3000} animationInDelay={0}
+                      className={style.formState3Text1}>
                 {state.currentUser.amComing === 'yes' &&
                 <span>{t(`coming text`)}</span>
                 }
@@ -20,7 +20,8 @@ function FormState3() {
                 <span>{t(`not coming text`)}</span>
                 }
             </Animated>
-            <Animated animationIn="fadeIn" animationOut="fadeOut" animationInDuration={3000} animationInDelay={200}>
+            <Animated animationIn="fadeIn" animationOut="fadeOut" animationInDuration={3000} animationInDelay={200}
+                      className={style.formState3Text2}>
                 <span>{t('save site')}</span>
             </Animated>
         </>

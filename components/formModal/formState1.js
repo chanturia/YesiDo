@@ -29,8 +29,8 @@ function FormState1() {
 
     const SignupSchema = Yup.object().shape({
         userCode: Yup.string()
-            .min(6, 'Not enough character')
-            .max(6, 'More characters that needed')
+            .min(6, t('6 characters'))
+            .max(6, t('6 characters'))
             .required('Required')
     });
 

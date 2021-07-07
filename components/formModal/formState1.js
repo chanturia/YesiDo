@@ -22,7 +22,7 @@ const theme = createMuiTheme({
     },
 });
 
-function FormState1({nextForm}) {
+function FormState1() {
     const {t} = useTranslation('common')
     const [errorUserNotFound, setErrorUserNotFound] = useState(false)
     const [state, dispatch] = useContext(Context);
@@ -48,51 +48,50 @@ function FormState1({nextForm}) {
                             values)
                         dispatch({type: 'SET_CURRENT_USER', payload: data})
                         setErrorUserNotFound(false)
-                        nextForm()
                     } catch ({response}) {
                         if (response.status === 404) {
                             setErrorUserNotFound(true)
                         }
                     }
                 }}
-                    >
+            >
                 {({values, errors, touched}) => (
                     <ThemeProvider theme={theme}>
-                    <Form>
-                    <div>
-                    <FormControl className={style.foolWidthField} style={{marginTop: 0}}>
-                    <Field
-                    required
-                    component={TextField}
-                    name="userCode"
-                    type="text"
-                    label={t`Your Code`}
-                    helperText={!errorUserNotFound ? t`The code that you get in message` : t`Wrong User code`}
-                    variant="outlined"
-                    error={Object.keys(errors)?.length !== 0 || errorUserNotFound}
-                    />
-                    </FormControl>
-                    </div>
-                    <Grid
-                    container
-                    direction="row"
-                    justify="center"
-                    alignItems="center"
-                    >
-                    <Button variant="contained" type={'submit'}
-                    color={'primary'}
-                    disabled={Object.keys(errors)?.length !== 0}
-                    style={{
-                    width: "50%"
-                }}>{t`submit`}</Button>
+                        <Form>
+                            <div>
+                                <FormControl className={style.foolWidthField} style={{marginTop: 0}}>
+                                    <Field
+                                        required
+                                        component={TextField}
+                                        name="userCode"
+                                        type="text"
+                                        label={t`Your Code`}
+                                        helperText={!errorUserNotFound ? t`The code that you get in message` : t`Wrong User code`}
+                                        variant="outlined"
+                                        error={Object.keys(errors)?.length !== 0 || errorUserNotFound}
+                                    />
+                                </FormControl>
+                            </div>
+                            <Grid
+                                container
+                                direction="row"
+                                justify="center"
+                                alignItems="center"
+                            >
+                                <Button variant="contained" type={'submit'}
+                                        color={'primary'}
+                                        disabled={Object.keys(errors)?.length !== 0}
+                                        style={{
+                                            width: "50%"
+                                        }}>{t`submit`}</Button>
 
-                    </Grid>
-                    </Form>
+                            </Grid>
+                        </Form>
                     </ThemeProvider>
-                    )}
-                    </Formik>
-                    </>
-                    );
-                }
+                )}
+            </Formik>
+        </>
+    );
+}
 
 export default FormState1;

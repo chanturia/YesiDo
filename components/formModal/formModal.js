@@ -12,11 +12,6 @@ function FormModal() {
     const [state, dispatch] = useContext(Context);
     let [currentForm, setCurrentForm] = useState(1);
 
-    const nextForm = () => {
-        if (currentForm < 3) {
-            setCurrentForm(currentForm++)
-        }
-    }
     const customStyles = {
         overlay: {
             backgroundColor: "rgb(0 0 0 / 90%)",
@@ -33,6 +28,24 @@ function FormModal() {
             overflow: "initial"
         },
     };
+
+    function renderForm(currentForm) {
+        switch (currentForm) {
+            default:
+                return <FormState1/>
+            case 1:
+                return <FormState1/>
+            case 2:
+                return <FormState2/>
+            case 3:
+                return <FormState3/>
+        }
+    }
+
+    useEffect(() => {
+        renderForm(currentForm)
+    }, [currentForm])
+
     useEffect(() => {
         if (state.currentUser?.amComing) {
             setCurrentForm(3)
@@ -40,29 +53,6 @@ function FormModal() {
         }
         setCurrentForm(Object.keys(state.currentUser).length > 0 ? 2 : 1)
     }, [state.currentUser])
-
-    function renderForm() {
-
-        switch (currentForm) {
-            default:
-                return <FormState1 nextForm={nextForm}/>
-            case 1:
-                return <FormState1 nextForm={nextForm}/>
-            case 2:
-                return <FormState2 nextForm={nextForm}/>
-            case 3:
-                return <FormState3 nextForm={nextForm}/>
-
-        }
-        if (currentForm === 1) {
-        } else {
-            return <FormState2/>
-        }
-    }
-
-    useEffect(() => {
-        renderForm()
-    }, [currentForm])
 
     function openModal() {
         setIsOpen(true);
@@ -84,7 +74,7 @@ function FormModal() {
                 ariaHideApp={false}
                 shouldCloseOnOverlayClick={false}
             >
-                {renderForm()}
+                {renderForm(currentForm)}
                 <div className={style.closeModal} onClick={() => closeModal()}><span>X</span></div>
             </Modal>
         </>

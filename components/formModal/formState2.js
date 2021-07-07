@@ -26,7 +26,7 @@ const theme = createMuiTheme({
     },
 });
 
-function FormState2({nextForm}) {
+function FormState2() {
     const {t} = useTranslation('common')
     const [state, dispatch] = useContext(Context);
 
@@ -74,7 +74,6 @@ function FormState2({nextForm}) {
                         '/api/saveFormData',
                         values)
                     dispatch({type: 'SET_CURRENT_USER', payload:  {...state.currentUser, ...data}})
-                    nextForm()
                 }}
             >
                 {({values, errors, touched, setFieldValue}) => (

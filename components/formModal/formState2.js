@@ -134,7 +134,7 @@ function FormState2() {
                                                 component={Select}
                                                 name="amount"
                                             >
-                                                {getAllowedAmount(state.currentUser.allowedAmmount)}
+                                                {getAllowedAmount(state.currentUser.allowedAmount)}
                                             </Field>
                                             <FormHelperText>{t`Persons that are coming with you`}</FormHelperText>
                                         </FormControl>

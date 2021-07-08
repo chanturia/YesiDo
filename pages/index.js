@@ -40,7 +40,7 @@ export default function Home({user}) {
                 {/* Global Site Tag (gtag.js) - Google Analytics */}
                 <script
                     async
-                    src={`https://www.googletagmanager.com/gtag/js?id=G-09CC4JG1WN"`}
+                    src={`https://www.googletagmanager.com/gtag/js?id=G-09CC4JG1WN`}
                 />
                 <script
                     dangerouslySetInnerHTML={{

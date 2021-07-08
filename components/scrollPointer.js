@@ -9,8 +9,9 @@ const ScrollPointer = styled.div`
   z-index: 999999;
   font-size: 1.2rem;
   text-transform: uppercase;
-  color: white;
   pointer-events: none;
+  font-weight: bold;
+  color: #274d4e;
   display: ${props => props.hidden ? "none" : "unset"};
   cursor: ${props => props.hidden ? "none" : "unset"};
 

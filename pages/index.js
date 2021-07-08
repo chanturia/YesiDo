@@ -7,6 +7,7 @@ import style from '/styles/Home.module.scss'
 import axios from 'axios'
 import {Context} from "/store/Store";
 import absoluteUrl from 'next-absolute-url'
+import {GA_TRACKING_ID} from '/extra/gtag'
 
 const breakPointMobile = parseInt(style.breakPointMobile)
 
@@ -37,6 +38,23 @@ export default function Home({user}) {
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"/>
                 <link rel="icon" href="/favicon.ico"/>
+                {/* Global Site Tag (gtag.js) - Google Analytics */}
+                <script
+                    async
+                    src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+                />
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_TRACKING_ID}', {
+              page_path: window.location.pathname,
+            });
+          `,
+                    }}
+                />
             </Head>
             {renderLayout(width)}
         </>

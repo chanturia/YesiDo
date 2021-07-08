@@ -47,6 +47,10 @@ function FormModal() {
     }, [currentForm])
 
     useEffect(() => {
+        setIsOpen(state.modalState.isActive)
+    }, [state.modalState])
+
+    useEffect(() => {
         if (state.currentUser?.amComing) {
             setCurrentForm(3)
             return null
@@ -55,11 +59,11 @@ function FormModal() {
     }, [state.currentUser])
 
     function openModal() {
-        setIsOpen(true);
+        dispatch({type: 'MODAL', payload: {isActive: true}})
     }
 
     function closeModal() {
-        setIsOpen(false);
+        dispatch({type: 'MODAL', payload: {isActive: false}})
     }
 
     return (

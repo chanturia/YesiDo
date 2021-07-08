@@ -3,7 +3,8 @@ import Reducer from '/reducer/Reducer'
 
 
 const initialState = {
-    currentUser: {}
+    currentUser: {},
+    modalState: {isActive: false}
 };
 
 const Store = ({children}) => {

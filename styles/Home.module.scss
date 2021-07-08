@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200;400;700&display=swap');
-
 $mainTextColor: #274d4e;
 $mainBgColor: #f9e2d4;
 $breakPointMobile: 900px;
@@ -308,6 +306,7 @@ $breakPointMobile: 900px;
       font-size: 2.3rem;
       font-weight: 300;
       margin: 1rem 0;
+      white-space: pre-wrap;
       @media (max-width: $breakPointMobile) {
         font-size: 1.4rem;
         margin: 0;

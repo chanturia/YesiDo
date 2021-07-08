@@ -5,6 +5,11 @@ const Reducer = (state, action) => {
                 ...state,
                 currentUser: action.payload
             };
+            case 'MODAL':
+            return {
+                ...state,
+                modalState: action.payload
+            };
         default:
             return state;
     }

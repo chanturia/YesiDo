@@ -7,8 +7,8 @@ import useTranslation from "next-translate/useTranslation";
 import Section1 from "/components/section1";
 import Section2 from "/components/section2";
 import Section3 from "/components/section3";
+import ScrollPointer from "/components/scrollPointer";
 import logo from "/svg/logo";
-
 
 export default function DesktopLayout() {
     const mainContainerRef = useRef()
@@ -65,6 +65,7 @@ export default function DesktopLayout() {
 
     return (
         <div className={style.container} ref={mainContainerRef} onWheel={wheelScroll}>
+            <ScrollPointer/>
             <section className={style.mainSection}>
                 <Navigation/>
                 <div className={style.centerBG}>

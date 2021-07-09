@@ -70,17 +70,19 @@ function FormState2() {
                 }
                 validationSchema={SignupSchema}
                 onSubmit={async (values) => {
+                    if (values.amComing === "no") {
+                        values.amount = 0
+                    }
                     const {data} = await axios.post(
                         '/api/saveFormData',
                         values)
-                    dispatch({type: 'SET_CURRENT_USER', payload:  {...state.currentUser, ...data}})
+                    dispatch({type: 'SET_CURRENT_USER', payload: {...state.currentUser, ...data}})
                 }}
             >
                 {({values, errors, touched, setFieldValue}) => (
                     <ThemeProvider theme={theme}>
                         <Form onChange={() => {
                             if (values.amComing === "no") {
-                                setFieldValue('amount', 1)
                                 setFieldValue('needHelpWithTransfer', false)
                             }
                             if (values.amComing === "yes") {

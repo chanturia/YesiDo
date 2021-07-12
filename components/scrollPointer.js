@@ -56,25 +56,30 @@ export default function scrollPointer() {
     }, [hidden, state.modalState.isActive])
 
     useEffect(() => {
-        window.onmousemove = (event) => {
-            if (state.modalState.isActive) {
-                return
-            }
-            let _event;
-            _event = event;
-            const hasPointer = event.path.filter(element => {
-                if (element instanceof HTMLElement) {
-                    let styles = window.getComputedStyle(element)
-                    if (styles.cursor === 'pointer') {
-                        return true
-                    }
+        function handleOnmousemove(event) {
+            {
+                if (state.modalState.isActive) {
+                    return
                 }
-            })
-            setHidden(hasPointer.length > 0)
-            return timer = setTimeout(() => {
-                return positionElement(_event);
-            }, 1);
-        };
+                let _event;
+                _event = event;
+                const hasPointer = event.path.filter(element => {
+                    if (element instanceof HTMLElement) {
+                        let styles = window.getComputedStyle(element)
+                        if (styles.cursor === 'pointer') {
+                            return true
+                        }
+                    }
+                })
+                setHidden(hasPointer.length > 0)
+                return timer = setTimeout(() => {
+                    return positionElement(_event);
+                }, 1);
+            }
+        }
+
+        window.addEventListener("mousemove", handleOnmousemove);
+        return () => window.removeEventListener("mousemove", handleOnmousemove);
     }, [])
     return (
         <ScrollPointer ref={mainContainerRef} hidden={hidden}>

@@ -63,7 +63,7 @@ export default function scrollPointer() {
                 }
                 let _event;
                 _event = event;
-                const hasPointer = event.path.filter(element => {
+                const hasPointer = event.path?.filter(element => {
                     if (element instanceof HTMLElement) {
                         let styles = window.getComputedStyle(element)
                         if (styles.cursor === 'pointer') {
@@ -71,7 +71,7 @@ export default function scrollPointer() {
                         }
                     }
                 })
-                setHidden(hasPointer.length > 0)
+                setHidden(hasPointer?.length > 0)
                 return timer = setTimeout(() => {
                     return positionElement(_event);
                 }, 1);
